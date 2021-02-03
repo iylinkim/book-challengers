@@ -1,19 +1,22 @@
-import axios from "axios";
+import AppRouter from "components/Router";
+import { authService } from "fbase";
+import { useEffect, useState } from "react";
 import "./app.css";
 
-function App() {
-  // const books = axios.create({
-  //   url:'https://dapi.kakao.com/v3/search/book?target=title?query=미움',
-  //   headers:{'Authorization': 'KakaoAK742e10ca3a65c754115634228a639144'},
-  // });
-  const book = axios.get(
-    `https://dapi.kakao.com/v3/search/book?query=미움받을용기`,
-    {
-      headers: { Authorization: `KakaoAK ${process.env.CREATE_APP_API_KEY}` },
-    }
-  );
-  console.log(book);
-  return <h1>Hello</h1>;
+function App({book}) {
+  const [init, setInit] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(authService.currentUser);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+  return <>{init ? <AppRouter loggedIn={loggedIn} book={book}/> : "Initializing..."}</>;
 }
 
 export default App;
