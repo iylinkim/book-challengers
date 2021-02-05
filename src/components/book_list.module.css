@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form {
+  margin: 0 20%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.books {
+  padding: 0 5%;
+  height: 250px;
+  border: 2px solid #efefef;
+  overflow: scroll;
+}
+.input {
+  width: 100%;
+  padding: 7px 0;
+  border: none;
+  background-color: #efefef;
+  border-radius: 30px;
+  outline: none;
+  text-indent: 10px;
+}
+.submit {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  /* background-image:url("/search.png"); */
+}

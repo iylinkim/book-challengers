@@ -1,0 +1,25 @@
+.result {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #efefef;
+  cursor:pointer;
+}
+.result:hover{
+    background-color:#efefef;
+}
+.cover {
+  width: 12%;
+}
+.cover img {
+  width: 100%;
+}
+.text {
+  width: 87%;
+  font-size: 0.7rem;
+}
+.title {
+  font-size: 0.8rem;
+  font-weight:700;
+}

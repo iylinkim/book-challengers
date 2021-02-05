@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./app";
 import Book from "Book";
+import '@fortawesome/fontawesome-free/js/all.js';
 
 const KEY = process.env.REACT_APP_API_KEY;
 const book = new Book(KEY);

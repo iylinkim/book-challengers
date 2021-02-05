@@ -1,34 +1,67 @@
-import React, { useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// import { useHistory } from "react-router-dom";
+import Book_Item from "./Book_Item";
+import Book_list from "./Book_List";
+// import { v4 as uuidv4 } from "uuid";
+import { dbService } from "fbase";
+import styles from "components/tracker.module.css";
 
 const Tracker = ({ book }) => {
-  const [books, setBooks] = useState([]);
-  const inputRef = useRef();
-  const history = useHistory();
-  const {
-    location: { goal },
-  } = history;
+  const [adding, setAdding] = useState(false);
+  const [bookContainers, setBookContainers] = useState([]);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    book
-      .search(inputRef.current.value)
-      .then((results) => setBooks(results.data.documents));
+  // const history = useHistory();
+
+  // if (goal === undefined) {
+  //   history.push({
+  //     pathname: "/",
+  //   });
+  // }
+
+  const onClick = () => {
+    // history.push({
+    //   pathname: "/book_list",
+    //   fill: fillBookContainers,
+    //   test: "test",
+    // });
+    setAdding(true);
   };
-  console.log(goal);
-  if (goal === undefined) {
-    history.push({
-      pathname: "/",
+
+  // const getBookInfo = async () => {
+  //   const dbBooks = await dbService.collection("books").get();
+  //   dbBooks.forEach((document) => {
+  //     const bookObj = {
+  //       ...document.data(),
+  //       id: document.id,
+  //     };
+
+  //     setBookContainers((prev) => [bookObj, ...prev]);
+  //   });
+  // };
+
+  useEffect(() => {
+    // getBookInfo();
+    dbService.collection("books").onSnapshot((snapshot) => {
+      const bookArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setBookContainers(bookArray);
     });
-  }
+  }, []);
+
   return (
-    <div>
-      <h2>{goal} Books Challenges</h2>
-      <form onSubmit={onSubmit}>
-        <input ref={inputRef} type="text" placeholder="Search" />
-        <input type="submit" value="find" />
-      </form>
-      <ul></ul>
+    <div className={styles.tracker}>
+      <h2 className={styles.title}>Books Challenges</h2>
+      {adding && <Book_list book={book} setAdding={setAdding}/>}
+      <ul className={styles.book_containers}>
+        {bookContainers.map((bookData) => {
+          return <Book_Item key={bookData.id} bookData={bookData} />;
+        })}
+        <li className={styles.blank} onClick={onClick}>
+          <span>+</span>
+        </li>
+      </ul>
     </div>
   );
 };

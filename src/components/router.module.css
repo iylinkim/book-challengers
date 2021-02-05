@@ -1,0 +1,10 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

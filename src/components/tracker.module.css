@@ -1,0 +1,30 @@
+.title {
+  padding-bottom: 20px;
+  font-size: 2rem;
+}
+
+.book_containers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tracker {
+  width: 80%;
+  outline: 5px solid pink;
+}
+
+.blank {
+  width: 120px;
+  height: 177px;
+  border: 1px dashed #a59cd2;
+  color:#a59cd2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+
+.blank:hover{
+    background-color:rgba(165,156,210,0.15);
+}
