@@ -1,6 +1,20 @@
 .title {
+  padding-top:20px;
   padding-bottom: 20px;
   font-size: 2rem;
+}
+
+.left{
+  padding-bottom:10px;
+  font-size:1em;
+  text-align:right;
+  color:#333;
+}
+
+.left span{
+  font-size:1.3em;
+  color:#2c2fe7dc;
+  text-shadow:2px 2px 0 rgba(0,0,0,0.2);
 }
 
 .book_containers {
@@ -11,20 +25,19 @@
 
 .tracker {
   width: 80%;
-  outline: 5px solid pink;
 }
 
 .blank {
   width: 120px;
   height: 177px;
   border: 1px dashed #a59cd2;
-  color:#a59cd2;
+  color: #a59cd2;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.blank:hover{
-    background-color:rgba(165,156,210,0.15);
+.blank:hover {
+  background-color: rgba(165, 156, 210, 0.15);
 }

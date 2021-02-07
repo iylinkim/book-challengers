@@ -6,7 +6,8 @@ const Book_list = ({ book, setAdding }) => {
   const [books, setBooks] = useState([]);
   const inputRef = useRef();
 
-  const onSubmit = (event) => {
+  const onClick = (event) => {
+    console.log("submit");
     event.preventDefault();
     book
       .search(inputRef.current.value)
@@ -15,22 +16,29 @@ const Book_list = ({ book, setAdding }) => {
 
   return (
     <div className={styles.list}>
-      <form className={styles.form} onSubmit={onSubmit}>
+      <form className={styles.form}>
         <input
           className={styles.input}
           ref={inputRef}
           type="text"
           placeholder="Search"
         />
-        <input className={styles.submit} type="submit" value="find" />
+        {/* <input className={styles.submit} type="submit" value="find" /> */}
+        <button onClick={onClick} className={styles.submit}>
+          <i className='fas fa-search'></i>
+        </button>
       </form>
 
       {books.length > 0 ? (
         <ul className={styles.books}>
           {books.map((bookInfo) => (
-            <Book_search key={bookInfo.isbn} bookInfo={bookInfo} setAdding={setAdding}/>
+            <Book_search
+              key={bookInfo.isbn}
+              bookInfo={bookInfo}
+              setAdding={setAdding}
+            />
           ))}
-         </ul>
+        </ul>
       ) : (
         <p>No result</p>
       )}

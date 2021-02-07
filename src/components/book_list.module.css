@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom:30px;
 }
 .form {
   margin: 0 20%;
@@ -10,7 +11,7 @@
 }
 
 .books {
-  padding: 0 5%;
+  margin: 0 5%;
   height: 250px;
   border: 2px solid #efefef;
   overflow: scroll;
@@ -28,5 +29,15 @@
   position: absolute;
   right: 5px;
   top: 7px;
+  border:none;
+  outline:none;
+  cursor:pointer;
   /* background-image:url("/search.png"); */
 }
+
+/* .search{
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  cursor:pointer;
+} */

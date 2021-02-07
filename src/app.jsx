@@ -20,7 +20,16 @@ function App({ book }) {
 
   return (
     <>
-      {init ? <AppRouter loggedIn={loggedIn} book={book} /> : "Initializing..."}
+      {init ? (
+        <AppRouter loggedIn={loggedIn} book={book} />
+      ) : (
+        <div className='loading'>
+          <p className='spinner'>
+            <i className="fas fa-spinner"></i>
+          </p>
+          <p className='loading_text'>Loading...</p>
+        </div>
+      )}
     </>
   );
 }

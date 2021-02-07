@@ -34,8 +34,7 @@ const Home = () => {
       setGoals((prev) => [goalObj, ...prev]);
     });
   };
-  
-  console.log(goals);
+
   const goToTracker = () => {
     if (goals.length > 0) {
       history.push({
@@ -45,7 +44,6 @@ const Home = () => {
     }
   };
   useEffect(() => {
-    console.log(saving);
     if (saving === false) {
       console.log("go to tracker");
       goToTracker();
@@ -54,8 +52,8 @@ const Home = () => {
       getBookGoal();
       setSaving(() => false);
     }
-  }, [saving]);
-  console.log(history.location);
+  }, [saving, goals]);
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Set your goal</h2>

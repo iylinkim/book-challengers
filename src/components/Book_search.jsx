@@ -10,7 +10,7 @@ const Book_search = ({ bookInfo, setAdding }) => {
         thumbnail,
         createdAt: Date.now(),
       });
-      alert("서재에 추가되었습니다");
+      // alert("서재에 추가되었습니다");
       setAdding(false);
     }
   };
