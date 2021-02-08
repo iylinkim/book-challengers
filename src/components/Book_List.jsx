@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Book_search from "./Book_search";
 import styles from "components/book_list.module.css";
 
-const Book_list = ({ book, setAdding }) => {
+const Book_list = ({ book, setAdding, userObj}) => {
   const [books, setBooks] = useState([]);
   const inputRef = useRef();
 
@@ -36,11 +36,12 @@ const Book_list = ({ book, setAdding }) => {
               key={bookInfo.isbn}
               bookInfo={bookInfo}
               setAdding={setAdding}
+              userObj={userObj}
             />
           ))}
         </ul>
       ) : (
-        <p>No result</p>
+        <p className={styles.no_result}>No result</p>
       )}
     </div>
   );

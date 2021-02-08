@@ -2,6 +2,7 @@ import { authService, firebaseInstance } from "fbase";
 import React, { useState } from "react";
 
 const Auth = () => {
+  console.log('Auth');
   const [newAccount, setNewAccount] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const Auth = () => {
         data = await authService.signInWithEmailAndPassword(email, password);
       }
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 

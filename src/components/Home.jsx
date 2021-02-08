@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 import { dbService } from "fbase";
 import styles from "components/home.module.css";
 
-const Home = () => {
+const Home = ({ userObj, loggedIn }) => {
   const history = useHistory();
   const [goal, setGoal] = useState(0);
-  const [goals, setGoals] = useState([]);
+  const [dbGoal, setDbGoal] = useState();
   const [saving, setSaving] = useState(true);
 
   const onChange = (event) => {
@@ -18,29 +18,27 @@ const Home = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("goal").add({
+    await dbService.ref(`${userObj.uid}/goal`).set({
       bookGoal: goal,
     });
   };
 
   const getBookGoal = async () => {
-    const dbGoal = await dbService.collection("goal").get();
-    dbGoal.forEach((document) => {
-      // 설정한 목표 Obj로 만듬
-      const goalObj = {
-        ...document.data(),
-        id: document.id,
-      };
-      setGoals((prev) => [goalObj, ...prev]);
+    const ref = dbService.ref(`${userObj.uid}/goal`);
+    ref.on("value", (snapshot) => {
+      const value = snapshot.val();
+      value && setDbGoal(value);
     });
   };
-
+  console.log('home loggedIn: '+loggedIn);
   const goToTracker = () => {
-    if (goals.length > 0) {
+    if (dbGoal && loggedIn) {
       history.push({
         pathname: "/tracker",
-        state: goals,
+        state: setDbGoal()
       });
+    }else if(!loggedIn){
+      history.push("/");
     }
   };
   useEffect(() => {
@@ -52,7 +50,7 @@ const Home = () => {
       getBookGoal();
       setSaving(() => false);
     }
-  }, [saving, goals]);
+  }, [saving, dbGoal]);
 
   return (
     <div className={styles.container}>

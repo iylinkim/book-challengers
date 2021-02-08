@@ -1,16 +1,16 @@
 import { dbService } from "fbase";
 import styles from "components/book_search.module.css";
 
-const Book_search = ({ bookInfo, setAdding }) => {
-  const { title, thumbnail, authors } = bookInfo;
+const Book_search = ({ bookInfo, setAdding, userObj }) => {
+  const { title, thumbnail, authors, isbn } = bookInfo;
+  // console.log(bookInfo);
   const onClick = async () => {
     const OK = window.confirm("add this book your tracker?");
     if (OK) {
-      await dbService.collection("books").add({
+      await dbService.ref(`${userObj.uid}/books/${isbn}`).set({
         thumbnail,
         createdAt: Date.now(),
       });
-      // alert("서재에 추가되었습니다");
       setAdding(false);
     }
   };
