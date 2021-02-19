@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Book_search from "./Book_search";
 import styles from "components/book_list.module.css";
 
-const Book_list = ({ book, setAdding, userObj}) => {
+const Book_list = ({ book, setAdding, userObj }) => {
   const [books, setBooks] = useState([]);
   const inputRef = useRef();
 
@@ -25,7 +25,7 @@ const Book_list = ({ book, setAdding, userObj}) => {
         />
         {/* <input className={styles.submit} type="submit" value="find" /> */}
         <button onClick={onClick} className={styles.submit}>
-          <i className='fas fa-search'></i>
+          <i className="fas fa-search"></i>
         </button>
       </form>
 

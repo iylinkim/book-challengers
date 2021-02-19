@@ -19,8 +19,9 @@ const Tracker = ({ book, userObj, loggedIn,setLoggedIn }) => {
 
   useEffect(() => {
     const ref = dbService.ref(`${userObj.uid}/books`);
-    ref.on("value", (snapshot) => {
+    ref.orderByChild("createdAt").on("value", (snapshot) => {
       const value = snapshot.val();
+      // console.log(value);
       value && setBookContainers(value);
     });
   }, [userObj.uid]);

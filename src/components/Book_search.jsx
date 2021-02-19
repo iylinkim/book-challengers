@@ -7,9 +7,10 @@ const Book_search = ({ bookInfo, setAdding, userObj }) => {
   const onClick = async () => {
     const OK = window.confirm("add this book your tracker?");
     if (OK) {
-      await dbService.ref(`${userObj.uid}/books/${isbn}`).set({
+      await dbService.ref(`${userObj.uid}/books/${Date.now()}`).set({
         thumbnail,
         createdAt: Date.now(),
+        title
       });
       setAdding(false);
     }
