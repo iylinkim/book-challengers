@@ -1,4 +1,4 @@
-import AppRouter from "components/Router";
+import AppRouter from "components/Router/Router";
 import { authService } from "fbase";
 import { useEffect, useState } from "react";
 import "./app.css";

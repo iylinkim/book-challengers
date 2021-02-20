@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Book_Item from "./Book_Item";
-import Book_list from "./Book_List";
-// import { v4 as uuidv4 } from "uuid";
+import Book_Item from "../BookItem/Book_Item";
+import Book_list from "../BookList/Book_List";
 import { authService, dbService } from "fbase";
-import styles from "components/tracker.module.css";
+import styles from "components/Tracker/tracker.module.css";
 
-const Tracker = ({ book, userObj, loggedIn,setLoggedIn }) => {
+const Tracker = ({ book, userObj,setLoggedIn }) => {
   const [adding, setAdding] = useState(false);
   const [bookContainers, setBookContainers] = useState([]);
   const [dbBookGoal, setDbBookGoal] = useState("");
   const [left, setLeft] = useState("");
-
+ 
   const history = useHistory();
 
   const onClick = () => setAdding(true);
@@ -19,8 +18,9 @@ const Tracker = ({ book, userObj, loggedIn,setLoggedIn }) => {
 
   useEffect(() => {
     const ref = dbService.ref(`${userObj.uid}/books`);
-    ref.on("value", (snapshot) => {
+    ref.orderByChild("createdAt").on("value", (snapshot) => {
       const value = snapshot.val();
+      // console.log(value);
       value && setBookContainers(value);
     });
   }, [userObj.uid]);
@@ -40,9 +40,8 @@ const Tracker = ({ book, userObj, loggedIn,setLoggedIn }) => {
     authService.signOut();
     setLoggedIn(false);
     history.push("/");
-
   };
-
+  console.log(userObj.displayName);
   return (
     <>
       <p className={styles.main}>
