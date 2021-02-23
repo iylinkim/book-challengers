@@ -5,43 +5,48 @@ import Book_list from "../BookList/Book_List";
 import { authService, dbService } from "fbase";
 import styles from "components/Tracker/tracker.module.css";
 
-const Tracker = ({ book, userObj,setLoggedIn }) => {
+const Tracker = ({ book, userObj, setLoggedIn }) => {
   const [adding, setAdding] = useState(false);
   const [bookContainers, setBookContainers] = useState([]);
-  const [dbBookGoal, setDbBookGoal] = useState("");
   const [left, setLeft] = useState("");
- 
   const history = useHistory();
 
+  const LS_CHALLENGE = "challenge title";
+  const LS_GOAL = "goal";
+
   const onClick = () => setAdding(true);
-  console.log("Tracker");
-
-  useEffect(() => {
-    const ref = dbService.ref(`${userObj.uid}/books`);
-    ref.orderByChild("createdAt").on("value", (snapshot) => {
-      const value = snapshot.val();
-      // console.log(value);
-      value && setBookContainers(value);
-    });
-  }, [userObj.uid]);
-
-  useEffect(() => {
-    const ref = dbService.ref(`${userObj.uid}/goal`);
-    ref.on("value", (snapshot) => {
-      const value = snapshot.val();
-      const bookNum = Object.keys(bookContainers).length;
-
-      value && setDbBookGoal(value.bookGoal);
-      setLeft(dbBookGoal - bookNum);
-    });
-  }, [dbBookGoal, left,userObj.uid,bookContainers]);
-
   const onSignout = () => {
     authService.signOut();
     setLoggedIn(false);
     history.push("/");
   };
-  console.log(userObj.displayName);
+  console.log("Tracker");
+
+  useEffect(() => {
+    if (history.location.state) {
+      window.localStorage.setItem(LS_CHALLENGE, history.location.title);
+      window.localStorage.setItem(
+        LS_GOAL,
+        history.location.state.goal.bookGoal
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    const ref = dbService.ref(
+      `${userObj.uid}/${window.localStorage.getItem(LS_CHALLENGE)}/books`
+    );
+    ref.on("value", (snapshot) => {
+      const value = snapshot.val();
+      value && setBookContainers(value);
+    });
+  }, [userObj.uid]);
+
+  useEffect(() => {
+    const bookNum = Object.keys(bookContainers).length;
+    setLeft(() => window.localStorage.getItem(LS_GOAL) - bookNum);
+  }, [bookContainers, left]);
+
   return (
     <>
       <p className={styles.main}>
@@ -51,14 +56,22 @@ const Tracker = ({ book, userObj,setLoggedIn }) => {
         Log out
       </button>
       <div className={styles.tracker}>
-        <h2 className={styles.title}>{dbBookGoal} Books Challenges</h2>
+        <h2 className={styles.title}>
+          {window.localStorage.getItem(LS_GOAL)} Books Challenges
+        </h2>
+        <h4>"{window.localStorage.getItem(LS_CHALLENGE)}"</h4>
         {left > 0 && (
           <h3 className={styles.left}>
             <span>{left}</span> books left until goal achievement!
           </h3>
         )}
         {adding && (
-          <Book_list book={book} setAdding={setAdding} userObj={userObj} />
+          <Book_list
+            book={book}
+            setAdding={setAdding}
+            userObj={userObj}
+            challengeName={window.localStorage.getItem(LS_CHALLENGE)}
+          />
         )}
         <ul className={styles.book_containers}>
           {Object.keys(bookContainers).map((key) => {

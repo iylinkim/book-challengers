@@ -1,22 +1,15 @@
-import { useState } from "react";
-import { dbService } from "fbase";
 import styles from "components/BookSearch/book_search.module.css";
 
-const Book_search = ({ bookInfo, setAdding, userObj }) => {
-  const { title, thumbnail, authors, isbn } = bookInfo;
+const Book_search = ({ bookInfo, setBookInfo}) => {
+  const { title, thumbnail, authors } = bookInfo;
 
-  const onClick = async () => {
-    const OK = window.confirm("add this book your tracker?");
-    if (OK) {
-      await dbService.ref(`${userObj.uid}/books/${Date.now()}`).set({
-        thumbnail,
-        createdAt: Date.now(),
-        title
-      });
-      setAdding(false);
-    }
+  const onClick = (event) => {
+    const coverImg = event.currentTarget.querySelector("img").src;
+    setBookInfo({
+      coverImg,
+    });
   };
-  console.log(test);
+
   return (
     <li className={styles.result} onClick={onClick}>
       <p className={styles.cover}>

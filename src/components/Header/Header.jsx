@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "components/Header/header.module.css";
-import { authService } from "fbase";
-import { useHistory } from "react-router-dom";
 
 const Header = ({ userObj }) => {
   return (
