@@ -10,7 +10,7 @@ const book = new Book(KEY);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App book={book} />
+    <App book={book}/>
   </React.StrictMode>,
   document.getElementById("root")
 );

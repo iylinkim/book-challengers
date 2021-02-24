@@ -5,16 +5,24 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Tracker from "../Tracker/Tracker";
+import Profile from "components/Profile/Profile";
 import styles from "components/Router/router.module.css";
+import Navigation from "components/Navigation/Navigation";
 
-const AppRouter = ({ loggedIn, book, userObj, setLoggedIn }) => {
-  console.log("router: " + loggedIn);
-
+const AppRouter = ({
+  loggedIn,
+  book,
+  userObj,
+  setLoggedIn,
+  ChallengeList,
+  refreshUser,
+}) => {
   return (
     <div className={styles.wrap}>
-      <Header userObj={userObj} />
+      <Header userObj={userObj} setLoggedIn={setLoggedIn} />
       <section className={styles.section}>
         <Router>
+          {loggedIn && <Navigation setLoggedIn={setLoggedIn} />}
           <Switch>
             {loggedIn && userObj ? (
               <>
@@ -27,6 +35,14 @@ const AppRouter = ({ loggedIn, book, userObj, setLoggedIn }) => {
                     userObj={userObj}
                     loggedIn={loggedIn}
                     setLoggedIn={setLoggedIn}
+                  />
+                </Route>
+                <Route exact path="/profile">
+                  <Profile
+                    userObj={userObj}
+                    loggedIn={loggedIn}
+                    ChallengeList={ChallengeList}
+                    refreshUser={refreshUser}
                   />
                 </Route>
               </>

@@ -1,0 +1,36 @@
+.progressWrap {
+  position: relative;
+}
+.progress {
+  width: 100%;
+  height: 20px;
+  border: 2px solid navy;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBar {
+  position: absolute;
+  height: 20px;
+  background-color: pink;
+}
+
+.barNum {
+  position: absolute;
+  top: 20px;
+}
+
+.barNum.start {
+  left: 0;
+}
+
+.barNum.done {
+  right: 0;
+}
+
+.current{
+    position:absolute;
+    top:0;
+    right:-35px;
+}

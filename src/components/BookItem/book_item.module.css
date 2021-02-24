@@ -4,3 +4,13 @@
     margin-right:10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
+.starWrap{
+    max-width:100px;
+    overflow:hidden;
+}
+.stars{
+    width:100%;
+    white-space: nowrap;
+    color:#ffd000;
+}

@@ -1,4 +1,5 @@
 import AppRouter from "components/Router/Router";
+import Challenges from "components/Challenges/Challenges";
 import { authService } from "fbase";
 import { useEffect, useState } from "react";
 import "./app.css";
@@ -7,6 +8,7 @@ function App({ book }) {
   const [init, setInit] = useState(false);
   const [loggedIn, setLoggedIn] = useState(authService.currentUser);
   const [userObj, setUserObj] = useState(null);
+  const ChallengeList = (props) => <Challenges {...props} userObj={userObj} />;
 
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
@@ -20,10 +22,27 @@ function App({ book }) {
       setInit(true);
     });
   }, [loggedIn, userObj]);
+
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
+
   return (
     <>
       {init ? (
-        <AppRouter loggedIn={loggedIn} book={book} userObj={userObj} setLoggedIn={setLoggedIn}/>
+        <AppRouter
+          loggedIn={loggedIn}
+          book={book}
+          userObj={userObj}
+          setLoggedIn={setLoggedIn}
+          ChallengeList={ChallengeList}
+          refreshUser={refreshUser}
+        />
       ) : (
         <div className="loading">
           <p className="spinner">

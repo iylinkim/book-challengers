@@ -1,0 +1,15 @@
+.title {
+  padding-top: 10px;
+}
+
+.add {
+  cursor: pointer;
+}
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+}
+.profileImg > img {
+  width: 100%;
+}
