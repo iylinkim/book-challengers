@@ -38,7 +38,41 @@
 .no_result{
   text-align:center;
 }
+.bookContainer{
+  display:flex;
+  justify-content:center;
+}
 
+.coverImg{
+  width:120px;
+}
+
+.ratingText{
+  display:flex;
+  align-items:center;
+
+}
+
+.ratingNum{
+  outline:none;
+  border:none;
+  background-color:#efefef;
+}
+
+.register{
+  padding: 3px 5px;
+  margin-left:10px;
+  background:none;
+  outline:none;
+  border:1px solid rgb(76, 188, 216);
+  border-radius:3px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+
+.register:hover{
+  box-shadow:0 0 5px rgb(76, 188, 216,0.5);
+}
 /* .search{
   position: absolute;
   right: 5px;

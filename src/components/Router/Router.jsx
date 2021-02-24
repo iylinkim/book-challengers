@@ -10,6 +10,7 @@ import styles from "components/Router/router.module.css";
 import Navigation from "components/Navigation/Navigation";
 
 const AppRouter = ({
+  ImageInput,
   loggedIn,
   book,
   userObj,
@@ -39,6 +40,7 @@ const AppRouter = ({
                 </Route>
                 <Route exact path="/profile">
                   <Profile
+                    ImageInput={ImageInput}
                     userObj={userObj}
                     loggedIn={loggedIn}
                     ChallengeList={ChallengeList}

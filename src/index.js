@@ -3,14 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./app";
 import Book from "Book";
-import '@fortawesome/fontawesome-free/js/all.js';
+import "@fortawesome/fontawesome-free/js/all.js";
+import ImageUploader from "imageUploader";
+import ImageFileInput from "components/ImageFileInput/ImageFileInput";
 
 const KEY = process.env.REACT_APP_API_KEY;
 const book = new Book(KEY);
+const imageUploader = new ImageUploader();
+const ImageInput = (props) => <ImageFileInput {...props} imageUploader={imageUploader}/>;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App book={book}/>
+    <App book={book} ImageInput={ImageInput}/>
   </React.StrictMode>,
   document.getElementById("root")
 );

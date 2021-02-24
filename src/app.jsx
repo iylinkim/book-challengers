@@ -4,7 +4,7 @@ import { authService } from "fbase";
 import { useEffect, useState } from "react";
 import "./app.css";
 
-function App({ book }) {
+function App({ImageInput, book }) {
   const [init, setInit] = useState(false);
   const [loggedIn, setLoggedIn] = useState(authService.currentUser);
   const [userObj, setUserObj] = useState(null);
@@ -36,6 +36,7 @@ function App({ book }) {
     <>
       {init ? (
         <AppRouter
+        ImageInput={ImageInput}
           loggedIn={loggedIn}
           book={book}
           userObj={userObj}

@@ -11,7 +11,9 @@ const Header = ({ userObj }) => {
           <span>Book Challengers</span>
         </h1>
         {userObj && (
-          <p className={styles.userName}>Hello {userObj.displayName}</p>
+          <p className={styles.userProfile}>
+            <img src={userObj.photoURL} alt={`${userObj.displayName}`}/>
+          </p>
         )}
       </header>
     </>

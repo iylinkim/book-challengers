@@ -8,8 +8,8 @@
   transform: translateY(-50%);
 }
 .title {
+  padding-bottom: 10px;
   margin-top: 50px;
-  padding-bottom: 40px;
   font-size: 2rem;
   position: relative;
   animation: showing 1s ease;
@@ -40,7 +40,7 @@
 }
 
 .left {
-  padding-bottom: 10px;
+  padding:30px 0;
   font-size: 1em;
   text-align: right;
   color: #333;

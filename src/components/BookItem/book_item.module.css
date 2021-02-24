@@ -1,16 +1,29 @@
-.book{
-    height:174px;
-    margin-bottom:25px;
-    margin-right:10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.book {
+  height: 174px;
+  margin-bottom: 50px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.starWrap{
-    max-width:100px;
-    overflow:hidden;
+.thumbnail{
+    width:120px;
+    height: 174px;
 }
-.stars{
-    width:100%;
-    white-space: nowrap;
-    color:#ffd000;
+
+.starWrap {
+  overflow: hidden;
+}
+.stars {
+  width: 100%;
+  white-space: nowrap;
+  color: #ffd000;
+}
+
+.rating {
+  display: flex;
+  font-size: 0.8rem;
+  color: #555;
+}
+.ratingNum {
+  padding-right: 5px;
 }

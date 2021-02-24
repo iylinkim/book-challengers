@@ -5,6 +5,12 @@ body,
   height: 100%;
 }
 
-body {
+body, input, select, button {
   font-family: "Zilla Slab", sans-serif;
+}
+body{
+  /* background-color:#efefef; */
+}
+input{
+  background:none;
 }

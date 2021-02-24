@@ -10,7 +10,6 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
   const ratingRef = useRef();
 
   const onClick = (event) => {
-    console.log("submit");
     event.preventDefault();
     book
       .search(inputRef.current.value)
@@ -21,7 +20,9 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
     const rating = ratingRef.current.value;
     if (rating > 5) {
       alert("Put number under 5");
-    } else {
+    } else if(rating === ""){
+      alert("Input number abouth this book!")
+    }else {
       await dbService
         .ref(`${userObj.uid}/${challengeName}/books/${Date.now()}`)
         .set({
@@ -46,40 +47,46 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
           <i className="fas fa-search"></i>
         </button>
       </form>
-      {Boolean(bookInfo.coverImg) ? (
-        <div classNAME={styles.ratingInfo}>
-          <img src={bookInfo.coverImg} />
-          <span>Rate this book</span>
-          <input
-            ref={ratingRef}
-            className={styles.ratingNum}
-            type="number"
-            min="0"
-            max="5"
-            step="0.1"
-          />
-          <span>/5</span>
-          <button onClick={submitRating}>register</button>
-        </div>
-      ) : (
-        ""
-      )}
-      {books.length > 0 ? (
-        <ul className={styles.books}>
-          {books.map((bookInfo) => (
-            <Book_search
-              key={bookInfo.isbn}
-              bookInfo={bookInfo}
-              setAdding={setAdding}
-              userObj={userObj}
-              challengeName={challengeName}
-              setBookInfo={setBookInfo}
-            />
-          ))}
-        </ul>
-      ) : (
-        <p className={styles.no_result}>No result</p>
-      )}
+      <div className={styles.bookContainer}>
+        {books.length > 0 ? (
+          <ul className={styles.books}>
+            {books.map((bookInfo) => (
+              <Book_search
+                key={bookInfo.isbn}
+                bookInfo={bookInfo}
+                setAdding={setAdding}
+                userObj={userObj}
+                challengeName={challengeName}
+                setBookInfo={setBookInfo}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.no_result}>No result</p>
+        )}
+        {Boolean(bookInfo.coverImg) ? (
+          <div classNAME={styles.ratingInfo}>
+            <img src={bookInfo.coverImg} />
+            <p>Rate this book</p>
+            <p className={styles.ratingText}>
+              <input
+                ref={ratingRef}
+                className={styles.ratingNum}
+                type="number"
+                autoFocus
+                min="0"
+                max="5"
+                step="0.1"
+                required
+              />
+              <span>/5</span>
+              <button className={styles.register} onClick={submitRating}>register</button>
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

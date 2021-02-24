@@ -31,8 +31,15 @@ const Challenge = ({ title, info }) => {
   );
 
   return (
-    <li onClick={goToTracker}>
-      {title}
+    <li
+      onClick={goToTracker}
+      className={
+        history.location.pathname === "/"
+          ? `${styles.home}`
+          : `${styles.profile}`
+      }
+    >
+      <p className={styles.title}>{title}</p>
       {history.location.pathname === "/profile" && (
         <div className={styles.progressWrap}>
           <div className={styles.progress}>
@@ -41,11 +48,13 @@ const Challenge = ({ title, info }) => {
               style={{ width: `${currentProgress}%` }}
             ></p>
           </div>
-            <span className={`${styles.start} ${styles.barNum}`}>0</span>
-            <span className={`${styles.done} ${styles.barNum}`}>
-              {info.goal.bookGoal}
-            </span>
-            <span className={styles.current}>{currentProgress < 100 ? `${currentProgress}%` : "DONE!"}</span>
+          <span className={`${styles.start} ${styles.barNum}`}>0</span>
+          <span className={`${styles.done} ${styles.barNum}`}>
+            {info.goal.bookGoal} books
+          </span>
+          <span className={styles.current}>
+            {currentProgress < 100 ? `${currentProgress}%` : "Done!"}
+          </span>
         </div>
       )}
     </li>

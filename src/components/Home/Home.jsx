@@ -40,14 +40,16 @@ const Home = ({ userObj }) => {
           step="10"
         />
         <span>books</span>
-        <input
-          className={styles.title}
-          onChange={onChange}
-          type="text"
-          value={title}
-          name="title"
-          placeholder="Enter your challenge title"
-        />
+        <p>
+          <input
+            className={`${styles.input} ${styles.titleInput}`}
+            onChange={onChange}
+            type="text"
+            value={title}
+            name="title"
+            placeholder="Enter your challenge title"
+          />
+        </p>
         <p className={styles.submit}>
           <input type="submit" value="start" />
         </p>

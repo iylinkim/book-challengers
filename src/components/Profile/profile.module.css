@@ -1,15 +1,82 @@
-.title {
-  padding-top: 10px;
+@keyframes showing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.add {
-  cursor: pointer;
+@keyframes box {
+  0% {
+    width: 0px;
+    transform: translateX(-10px);
+  }
+  100% {
+    width: 60px;
+    transform: translateX(0px);
+  }
+}
+
+.title {
+  width: 50%;
+  margin: 30px 0 10px;
+  line-height: 30px;
+  position: relative;
+  animation: showing 1s ease;
+}
+
+.title:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: -10px;
+  top: 0;
+  z-index: -1;
+  background-color: rgb(76, 188, 216, 0.5);
+  animation: box 0.7s ease;
+}
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profileImg {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
-.profileImg > img {
-  width: 100%;
+
+.userName {
+  margin-bottom:15px;
+  line-height:25px;
+  text-indent: 10px;
+  border:none;
+  background-color:#efefef;
+}
+
+.update {
+  padding: 5px 50px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  background: none;
+  background-image: linear-gradient(to left, #4cbcd8, #a59cd2);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.update:hover{
+  opacity:0.7;
 }

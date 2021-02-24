@@ -21,10 +21,10 @@ const Navigation = ({ setLoggedIn }) => {
     }
   };
   return (
-    <ul>
-      <li onClick={onClick}>Home</li>
-      <li onClick={onClick}>Profile</li>
-      <li onClick={onClick}>Sign out</li>
+    <ul className={styles.nav}>
+      <li className={styles.menu} onClick={onClick}>Home</li>
+      <li className={styles.menu} onClick={onClick}>Profile</li>
+      <li className={styles.menu} onClick={onClick}>Sign out</li>
     </ul>
   );
 };

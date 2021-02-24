@@ -1,0 +1,18 @@
+.nav {
+  padding-right:45px;
+  position: absolute;
+  right: 5%;
+  top: -37px;
+  display: flex;
+  justify-content: space-between;
+  color:#333;
+  font-size:0.8rem;
+}
+.menu{
+    padding-left:7px;
+    transition: all 0.2s ease;
+    cursor:pointer;
+}
+.menu:hover{
+    color:#2c9cb8;
+}

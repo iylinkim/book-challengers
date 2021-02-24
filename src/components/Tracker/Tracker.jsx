@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Book_Item from "../BookItem/Book_Item";
 import Book_list from "../BookList/Book_List";
-import { authService, dbService } from "fbase";
+import {  dbService } from "fbase";
 import styles from "components/Tracker/tracker.module.css";
 
-const Tracker = ({ book, userObj, setLoggedIn }) => {
+const Tracker = ({ book, userObj }) => {
   const [adding, setAdding] = useState(false);
   const [bookContainers, setBookContainers] = useState([]);
   const [left, setLeft] = useState("");
@@ -15,11 +15,7 @@ const Tracker = ({ book, userObj, setLoggedIn }) => {
   const LS_GOAL = "goal";
 
   const onClick = () => setAdding(true);
-  const onSignout = () => {
-    authService.signOut();
-    setLoggedIn(false);
-    history.push("/");
-  };
+ 
   console.log("Tracker");
 
   useEffect(() => {
@@ -52,9 +48,9 @@ const Tracker = ({ book, userObj, setLoggedIn }) => {
       <p className={styles.main}>
         <img src="main.jpg" alt="book" />
       </p>
-      <button onClick={onSignout} className={styles.logout}>
+      {/* <button onClick={onSignout} className={styles.logout}>
         Log out
-      </button>
+      </button> */}
       <div className={styles.tracker}>
         <h2 className={styles.title}>
           {window.localStorage.getItem(LS_GOAL)} Books Challenges
