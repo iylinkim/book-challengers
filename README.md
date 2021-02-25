@@ -1,5 +1,5 @@
 # Book Challengers 📖
-https://img.shields.io/github/license/iylinkim/book-challengers?label=license
+[!issue badge](https://img.shields.io/github/license/iylinkim/book-challengers?label=license)
 
 Simple book tracker app created with React.
 
