@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/book-challengers/static/css/main.f1faf67e.chunk.css",
+    "main.js": "/book-challengers/static/js/main.3923c39d.chunk.js",
+    "main.js.map": "/book-challengers/static/js/main.3923c39d.chunk.js.map",
+    "runtime-main.js": "/book-challengers/static/js/runtime-main.6e69006c.js",
+    "runtime-main.js.map": "/book-challengers/static/js/runtime-main.6e69006c.js.map",
+    "static/js/2.8645fa4b.chunk.js": "/book-challengers/static/js/2.8645fa4b.chunk.js",
+    "static/js/2.8645fa4b.chunk.js.map": "/book-challengers/static/js/2.8645fa4b.chunk.js.map",
+    "index.html": "/book-challengers/index.html",
+    "static/css/main.f1faf67e.chunk.css.map": "/book-challengers/static/css/main.f1faf67e.chunk.css.map",
+    "static/js/2.8645fa4b.chunk.js.LICENSE.txt": "/book-challengers/static/js/2.8645fa4b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6e69006c.js",
+    "static/js/2.8645fa4b.chunk.js",
+    "static/css/main.f1faf67e.chunk.css",
+    "static/js/main.3923c39d.chunk.js"
+  ]
+}
