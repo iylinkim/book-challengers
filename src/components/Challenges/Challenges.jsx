@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
 import Challenge from "../Challenge/Challenge";
-import { useHistory } from "react-router-dom";
-import styles from "components/Challenges/challenges.module.css"
+import styles from "components/Challenges/challenges.module.css";
 
 const Challenges = ({ userObj }) => {
   const [challenges, setChallenges] = useState({});
-  const history = useHistory();
 
   useEffect(() => {
     const ref = dbService.ref(`${userObj.uid}`);

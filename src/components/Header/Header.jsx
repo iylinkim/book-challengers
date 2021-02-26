@@ -2,7 +2,6 @@ import React from "react";
 import styles from "components/Header/header.module.css";
 
 const Header = ({ userObj }) => {
-
   return (
     <>
       <header className={styles.header}>
@@ -11,9 +10,12 @@ const Header = ({ userObj }) => {
           <span>Book Challengers</span>
         </h1>
         {userObj && (
-          <p className={styles.userProfile}>
-            <img src={userObj.photoURL} alt={`${userObj.displayName}`}/>
-          </p>
+          <div className={styles.user}>
+            <p className={styles.userProfile}>
+              <img src={userObj.photoURL} alt={`${userObj.displayName}`} />
+            </p>
+            <span>{userObj.displayName}</span>
+          </div>
         )}
       </header>
     </>

@@ -1,8 +1,15 @@
 import React from "react";
-import styles from "components/BookItem/book_item.module.css";
+import styles from "components/BookItem/BookItem.module.css";
+import { dbService } from "fbase";
 
-const Book_Item = ({ onClick, bookData }) => {
+const BookItem = ({ onClick, userObj, bookData, challengeTitle }) => {
   const { thumbnail, rating } = bookData;
+  const onDelete = async () => {
+    const ref = dbService.ref(
+      `${userObj.uid}/${challengeTitle}/books/${bookData.createdAt}`
+    );
+    await ref.remove();
+  };
   return (
     <li className={styles.book} onClick={onClick}>
       <p>
@@ -10,10 +17,7 @@ const Book_Item = ({ onClick, bookData }) => {
       </p>
       <div className={styles.rating}>
         <span className={styles.ratingNum}>{rating}</span>
-        <div
-          className={styles.starWrap}
-          style={{ width: rating * 0.2 * 75 }}
-        >
+        <div className={styles.starWrap} style={{ width: rating * 0.2 * 75 }}>
           <p className={styles.stars}>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
@@ -23,8 +27,9 @@ const Book_Item = ({ onClick, bookData }) => {
           </p>
         </div>
       </div>
+      <button className={styles.deleteBtn} onClick={onDelete}>Delete</button>
     </li>
   );
 };
 
-export default Book_Item;
+export default BookItem;

@@ -31,19 +31,23 @@
   cursor: pointer;
 }
 
+.user{
+  position:absolute;
+  right:5%;
+  top:10px;
+  display:flex;
+  align-items:center;
+}
+
 .userProfile{
   width: 30px;
   height: 30px;
-  margin: 0 auto 15px;
   border-radius: 50%;
   border: 1px solid #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   display: flex;
   justify-content: center;
-  position:absolute;
-  right:5%;
-  top:10px;
 }
 
 .addBtn{

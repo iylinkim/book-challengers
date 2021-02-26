@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Book_Item from "../BookItem/Book_Item";
-import Book_list from "../BookList/Book_List";
-import {  dbService } from "fbase";
+import BookItem from "../BookItem/BookItem";
+import BookList from "../BookList/BookList";
+import { dbService } from "fbase";
 import styles from "components/Tracker/tracker.module.css";
 
 const Tracker = ({ book, userObj }) => {
@@ -13,10 +13,9 @@ const Tracker = ({ book, userObj }) => {
 
   const LS_CHALLENGE = "challenge title";
   const LS_GOAL = "goal";
+  const challengeTitle = window.localStorage.getItem(LS_CHALLENGE);
 
   const onClick = () => setAdding(true);
- 
-  console.log("Tracker");
 
   useEffect(() => {
     if (history.location.state) {
@@ -26,7 +25,7 @@ const Tracker = ({ book, userObj }) => {
         history.location.state.goal.bookGoal
       );
     }
-  }, []);
+  }, [history.location.state, history.location.title]);
 
   useEffect(() => {
     const ref = dbService.ref(
@@ -34,7 +33,11 @@ const Tracker = ({ book, userObj }) => {
     );
     ref.on("value", (snapshot) => {
       const value = snapshot.val();
-      value && setBookContainers(value);
+      if(value){
+        setBookContainers(value);
+      }else{
+        setBookContainers([]);
+      }
     });
   }, [userObj.uid]);
 
@@ -43,14 +46,12 @@ const Tracker = ({ book, userObj }) => {
     setLeft(() => window.localStorage.getItem(LS_GOAL) - bookNum);
   }, [bookContainers, left]);
 
+
   return (
     <>
       <p className={styles.main}>
-        <img src="main.jpg" alt="book" />
+        <img src="images/main.jpg" alt="book" />
       </p>
-      {/* <button onClick={onSignout} className={styles.logout}>
-        Log out
-      </button> */}
       <div className={styles.tracker}>
         <h2 className={styles.title}>
           {window.localStorage.getItem(LS_GOAL)} Books Challenges
@@ -62,7 +63,7 @@ const Tracker = ({ book, userObj }) => {
           </h3>
         )}
         {adding && (
-          <Book_list
+          <BookList
             book={book}
             setAdding={setAdding}
             userObj={userObj}
@@ -71,9 +72,16 @@ const Tracker = ({ book, userObj }) => {
         )}
         <ul className={styles.book_containers}>
           {Object.keys(bookContainers).map((key) => {
-            return <Book_Item key={key} bookData={bookContainers[key]} />;
+            return (
+              <BookItem
+                key={key}
+                userObj={userObj}
+                bookData={bookContainers[key]}
+                challengeTitle={challengeTitle}
+              />
+            );
           })}
-          {left >= 0 && (
+          {left > 0 && (
             <li className={styles.blank} onClick={onClick}>
               <span>+</span>
             </li>

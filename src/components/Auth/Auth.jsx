@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "components/Auth/auth.module.css";
 
 const Auth = () => {
-  console.log("Auth");
   const [newAccount, setNewAccount] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

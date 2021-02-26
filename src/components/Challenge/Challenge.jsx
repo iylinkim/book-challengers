@@ -24,7 +24,7 @@ const Challenge = ({ title, info }) => {
         totalBookCount: Object.keys(info.books).length,
       });
     }
-  }, []);
+  }, [info.books]);
 
   const currentProgress = Math.floor(
     (progress.totalBookCount / info.goal.bookGoal) * 100

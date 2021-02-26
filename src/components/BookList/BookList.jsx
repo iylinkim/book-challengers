@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import Book_search from "../BookSearch/Book_search";
-import styles from "components/BookList/book_list.module.css";
+import BookSearch from "../BookSearch/BookSearch";
+import styles from "components/BookList/BookList.module.css";
 import { dbService } from "fbase";
 
-const Book_list = ({ book, setAdding, userObj, challengeName }) => {
+const BookList = ({ book, setAdding, userObj, challengeName }) => {
   const [books, setBooks] = useState([]);
   const [bookInfo, setBookInfo] = useState({});
   const inputRef = useRef();
@@ -20,15 +20,17 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
     const rating = ratingRef.current.value;
     if (rating > 5) {
       alert("Put number under 5");
-    } else if(rating === ""){
-      alert("Input number abouth this book!")
-    }else {
+    } else if (rating === "") {
+      alert("Input number abouth this book!");
+    } else {
+      const timestamp = Date.now();
       await dbService
-        .ref(`${userObj.uid}/${challengeName}/books/${Date.now()}`)
+        .ref(`${userObj.uid}/${challengeName}/books/${timestamp}`)
         .set({
           thumbnail: bookInfo.coverImg,
+          title:bookInfo.title,
           rating,
-          createdAt: Date.now(),
+          createdAt: timestamp,
         });
       setAdding(false);
     }
@@ -51,7 +53,7 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
         {books.length > 0 ? (
           <ul className={styles.books}>
             {books.map((bookInfo) => (
-              <Book_search
+              <BookSearch
                 key={bookInfo.isbn}
                 bookInfo={bookInfo}
                 setAdding={setAdding}
@@ -65,8 +67,8 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
           <p className={styles.no_result}>No result</p>
         )}
         {Boolean(bookInfo.coverImg) ? (
-          <div classNAME={styles.ratingInfo}>
-            <img src={bookInfo.coverImg} />
+          <div className={styles.ratingInfo}>
+            <img src={bookInfo.coverImg} alt="book cover"/>
             <p>Rate this book</p>
             <p className={styles.ratingText}>
               <input
@@ -80,7 +82,9 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
                 required
               />
               <span>/5</span>
-              <button className={styles.register} onClick={submitRating}>register</button>
+              <button className={styles.register} onClick={submitRating}>
+                register
+              </button>
             </p>
           </div>
         ) : (
@@ -91,4 +95,4 @@ const Book_list = ({ book, setAdding, userObj, challengeName }) => {
   );
 };
 
-export default Book_list;
+export default BookList;
