@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class Search {
+class Book {
   constructor(key) {
     this.key = key;
     
@@ -17,4 +17,4 @@ class Search {
   }
 }
 
-export default Search;
+export default Book;
