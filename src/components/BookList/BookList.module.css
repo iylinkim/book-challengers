@@ -84,3 +84,17 @@
   top: 7px;
   cursor:pointer;
 } */
+
+/* darkMode */
+.dark.books{
+  border:2px solid #64686F;
+}
+
+.dark.input{
+  background-color:#282D39;
+  color:#fff;
+}
+
+.dark.register{
+  color:#fff;
+}

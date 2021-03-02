@@ -1,6 +1,6 @@
 import styles from "components/BookSearch/BookSearch.module.css";
 
-const BookSearch = ({ bookInfo, setBookInfo }) => {
+const BookSearch = ({ bookInfo, setBookInfo, darkTheme }) => {
   const { title, thumbnail, authors } = bookInfo;
 
   const onClick = (event) => {
@@ -11,9 +11,17 @@ const BookSearch = ({ bookInfo, setBookInfo }) => {
     });
   };
   return (
-    <li className={styles.result} onClick={onClick}>
+    <li
+      className={
+        darkTheme ? `${styles.dark} ${styles.result}` : `${styles.result}`
+      }
+      onClick={onClick}
+    >
       <p className={styles.cover}>
-        <img src={thumbnail ? thumbnail : "/book-challengers/images/default.png"} alt={title} />
+        <img
+          src={thumbnail ? thumbnail : "/book-challengers/images/default.png"}
+          alt={title}
+        />
       </p>
       <ul className={styles.text}>
         <li className={styles.title}>{title}</li>

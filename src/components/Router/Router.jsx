@@ -1,9 +1,5 @@
-import React from "react";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React, { useState } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Auth from "../Auth/Auth";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -13,20 +9,27 @@ import Profile from "components/Profile/Profile";
 import styles from "components/Router/router.module.css";
 import Navigation from "components/Navigation/Navigation";
 
-function AppRouter({
+const AppRouter = ({
+  ChallengeList,
   ImageInput,
+  ToggleBtn,
   loggedIn,
   book,
   userObj,
   setLoggedIn,
-  ChallengeList,
   refreshUser,
-}) {
+}) => {
+  const [darkTheme, setDarkTheme] = useState(false);
   return (
     <div className={styles.wrap}>
-      <Header userObj={userObj} setLoggedIn={setLoggedIn} />
+      <Header
+        userObj={userObj}
+        setLoggedIn={setLoggedIn}
+        darkTheme={darkTheme}
+      />
+      <ToggleBtn darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <Router>
-        {loggedIn && <Navigation setLoggedIn={setLoggedIn} />}
+        {loggedIn && <Navigation setLoggedIn={setLoggedIn} darkTheme={darkTheme}/>}
         <section className={styles.section}>
           <Switch>
             {loggedIn && userObj ? (
@@ -40,6 +43,7 @@ function AppRouter({
                     userObj={userObj}
                     loggedIn={loggedIn}
                     setLoggedIn={setLoggedIn}
+                    darkTheme={darkTheme}
                   />
                 </Route>
                 <Route exact path="/profile">
@@ -49,22 +53,23 @@ function AppRouter({
                     loggedIn={loggedIn}
                     ChallengeList={ChallengeList}
                     refreshUser={refreshUser}
+                    darkTheme={darkTheme}
                   />
                 </Route>
               </>
             ) : (
               <>
                 <Route exact path="/">
-                  <Auth loggedIn={loggedIn} />
+                  <Auth darkTheme={darkTheme}/>
                 </Route>
               </>
             )}
           </Switch>
         </section>
       </Router>
-      <Footer />
+      <Footer darkTheme={darkTheme}/>
     </div>
   );
-}
+};
 
 export default AppRouter;

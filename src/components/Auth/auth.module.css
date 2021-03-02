@@ -123,6 +123,16 @@
 
 /* error */
 .error {
-  font-size:0.7rem;
+  font-size: 0.7rem;
   color: #e81c1c;
+}
+
+/* dark mode */
+.dark.info_wrap {
+  background-color: #272c38;
+}
+
+.dark.box {
+  background-color: #3a3d46;
+  color:#fff;
 }

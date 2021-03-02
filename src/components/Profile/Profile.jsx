@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import styles from "components/Profile/profile.module.css";
 
-const Profile = ({ ImageInput, userObj, ChallengeList, refreshUser }) => {
+const Profile = ({
+  ImageInput,
+  userObj,
+  ChallengeList,
+  refreshUser,
+  darkTheme,
+}) => {
   const [newUserObj, setNewUserObj] = useState({
     displayName: userObj.displayName,
     photoURL: userObj.photoURL,
@@ -45,8 +51,10 @@ const Profile = ({ ImageInput, userObj, ChallengeList, refreshUser }) => {
         <input className={styles.update} type="submit" value="Update" />
       </form>
       <h3 className={styles.title}>Challenges </h3>
-      <p className={styles.subTitle}>Click each section if you go to that challenge</p>
-      <ChallengeList />
+      <p className={styles.subTitle}>
+        Click each section if you go to that challenge
+      </p>
+      <ChallengeList darkTheme={darkTheme}/>
     </>
   );
 };

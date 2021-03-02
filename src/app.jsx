@@ -4,12 +4,11 @@ import { authService } from "fbase";
 import { useEffect, useState } from "react";
 import "./app.css";
 
-function App({ImageInput, book }) {
+function App({ ImageInput, ToggleBtn, book }) {
   const [init, setInit] = useState(false);
   const [loggedIn, setLoggedIn] = useState(authService.currentUser);
   const [userObj, setUserObj] = useState(null);
   const ChallengeList = (props) => <Challenges {...props} userObj={userObj} />;
-
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -36,12 +35,13 @@ function App({ImageInput, book }) {
     <>
       {init ? (
         <AppRouter
-        ImageInput={ImageInput}
+          ChallengeList={ChallengeList}
+          ImageInput={ImageInput}
+          ToggleBtn={ToggleBtn}
           loggedIn={loggedIn}
           book={book}
           userObj={userObj}
           setLoggedIn={setLoggedIn}
-          ChallengeList={ChallengeList}
           refreshUser={refreshUser}
         />
       ) : (

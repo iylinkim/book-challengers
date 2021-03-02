@@ -117,3 +117,12 @@
 .logout:hover {
   transform: scale(0.98);
 }
+
+/* darkMode */
+.dark.left{
+  color:#fff;
+}
+
+.dark.left span{
+  color:#EB5473;
+}

@@ -19,8 +19,8 @@
 .barNum {
   position: absolute;
   top: 25px;
-  font-size:0.8rem;
-  color:#333;
+  font-size: 0.8rem;
+  color: #333;
 }
 
 .barNum.start {
@@ -35,7 +35,7 @@
   position: absolute;
   top: 0;
   right: -40px;
-  font-size:0.8rem;
+  font-size: 0.8rem;
 }
 
 /* pathname: /home */
@@ -47,8 +47,8 @@
   border-left: 5px solid #5eafac;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  transition:all 0.2s ease;
-  cursor:pointer;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .home:hover {
@@ -56,14 +56,23 @@
 }
 
 /* pathname: /profile */
-.profile{
-margin-bottom:30px;
-cursor:pointer;
+.profile {
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
-.title{
+.title {
   /* padding-bottom:5px; */
-  color:#333;
-  font-size:1rem;
+  color: #333;
+  font-size: 1rem;
 }
 
+/* darkMode */
+.dark.title,
+.dark.barNum {
+  color: #fff;
+}
+
+.dark.home {
+  background-color: #373f50;
+}

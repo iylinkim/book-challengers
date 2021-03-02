@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #efefef;
-  cursor:pointer;
+  cursor: pointer;
 }
-.result:hover{
-    background-color:#efefef;
+.result:hover {
+  background-color: #efefef;
 }
 .cover {
   width: 12%;
@@ -20,5 +20,14 @@
 }
 .title {
   font-size: 0.8rem;
-  font-weight:700;
+  font-weight: 700;
+}
+
+/* darkMode */
+.dark.result {
+  border-bottom: 1px solid #272C38;
+}
+
+.dark.result:hover {
+  background-color: #272C38;
 }

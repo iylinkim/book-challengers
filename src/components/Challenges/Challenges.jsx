@@ -3,7 +3,7 @@ import { dbService } from "fbase";
 import Challenge from "../Challenge/Challenge";
 import styles from "components/Challenges/challenges.module.css";
 
-const Challenges = ({ userObj }) => {
+const Challenges = ({ userObj, darkTheme }) => {
   const [challenges, setChallenges] = useState({});
 
   useEffect(() => {
@@ -18,7 +18,14 @@ const Challenges = ({ userObj }) => {
     <ul className={styles.challenges}>
       {challenges
         ? Object.keys(challenges).map((key) => {
-            return <Challenge key={key} title={key} info={challenges[key]} />;
+            return (
+              <Challenge
+                key={key}
+                title={key}
+                info={challenges[key]}
+                darkTheme={darkTheme}
+              />
+            );
           })
         : "There is no challenges yet. Set your goal!"}
     </ul>

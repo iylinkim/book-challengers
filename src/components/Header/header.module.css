@@ -2,7 +2,7 @@
 
 .header {
   font-family: "Pacifico", cursive;
-  padding: 10px 5%;
+  padding: 20px 5%;
   font-size: 0.6rem;
   position: relative;
   background-color:#fff;
@@ -34,7 +34,7 @@
 .user{
   position:absolute;
   right:5%;
-  top:10px;
+  top:30px;
   display:flex;
   align-items:center;
 }
@@ -64,4 +64,14 @@
 .main img {
   width: 100%;
   transform: translateY(-30%);
+}
+
+/* dark mode */
+.dark.header{
+  background-color:#19202C;
+  color:#fff;
+}
+
+.dark.header span{
+  color:#fff;
 }

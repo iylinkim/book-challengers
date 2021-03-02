@@ -6,15 +6,17 @@ import Book from "Book";
 import "@fortawesome/fontawesome-free/js/all.js";
 import ImageUploader from "imageUploader";
 import ImageFileInput from "components/ImageFileInput/ImageFileInput";
+import Theme from "components/Theme/Theme";
 
 const KEY = process.env.REACT_APP_API_KEY;
 const book = new Book(KEY);
 const imageUploader = new ImageUploader();
 const ImageInput = (props) => <ImageFileInput {...props} imageUploader={imageUploader}/>;
+const ToggleBtn = (props) => <Theme {...props}/> 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App book={book} ImageInput={ImageInput}/>
+    <App book={book} ImageInput={ImageInput} ToggleBtn={ToggleBtn}/>
   </React.StrictMode>,
   document.getElementById("root")
 );

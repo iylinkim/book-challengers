@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "components/Footer/footer.module.css";
 
-const Footer = () => {
+const Footer = ({ darkTheme }) => {
   return (
-    <footer className={styles.footer}>
+    <footer
+      className={
+        darkTheme ? `${styles.dark} ${styles.footer}` : `${styles.footer}`
+      }
+    >
       &copy; {new Date().getFullYear()} Iylin Kim. All rights reserved.
     </footer>
   );

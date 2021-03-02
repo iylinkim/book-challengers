@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "components/Challenge/challenge.module.css";
 
-const Challenge = ({ title, info }) => {
+const Challenge = ({ title, info, darkTheme }) => {
   const [progress, setProgress] = useState({});
   const history = useHistory();
 
@@ -39,7 +39,13 @@ const Challenge = ({ title, info }) => {
           : `${styles.profile}`
       }
     >
-      <p className={styles.title}>{title}</p>
+      <p
+        className={
+          darkTheme ? `${styles.dark} ${styles.title}` : `${styles.title}`
+        }
+      >
+        {title}
+      </p>
       {history.location.pathname === "/profile" && (
         <div className={styles.progressWrap}>
           <div className={styles.progress}>
@@ -48,8 +54,22 @@ const Challenge = ({ title, info }) => {
               style={{ width: `${currentProgress}%` }}
             ></p>
           </div>
-          <span className={`${styles.start} ${styles.barNum}`}>0</span>
-          <span className={`${styles.done} ${styles.barNum}`}>
+          <span
+            className={
+              darkTheme
+                ? `${styles.dark} ${styles.start} ${styles.barNum}`
+                : `${styles.start} ${styles.barNum}`
+            }
+          >
+            0
+          </span>
+          <span
+            className={
+              darkTheme
+                ? `${styles.dark} ${styles.done} ${styles.barNum}`
+                : `${styles.done} ${styles.barNum}`
+            }
+          >
             {info.goal.bookGoal} books
           </span>
           <span className={styles.current}>

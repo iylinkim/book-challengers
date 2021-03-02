@@ -2,7 +2,7 @@ import { authService, firebaseInstance } from "fbase";
 import React, { useState } from "react";
 import styles from "components/Auth/auth.module.css";
 
-const Auth = () => {
+const Auth = ({ darkTheme }) => {
   const [newAccount, setNewAccount] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,6 @@ const Auth = () => {
       }
     } catch (error) {
       setError(error.message);
-      console.log(error.message);
     }
   };
 
@@ -58,15 +57,31 @@ const Auth = () => {
       <div className={styles.img}>
         <img src="/book-challengers/images/authMain.jpg" alt="auth main" />
       </div>
-      <div className={styles.info_wrap}>
+      <div
+        className={
+          darkTheme
+            ? `${styles.dark} ${styles.info_wrap}`
+            : `${styles.info_wrap}`
+        }
+      >
         <div className={styles.info}>
           <form onSubmit={onSubmit} className={styles.form}>
             <div className={styles.email}>
-              <span className={`${styles.box} ${styles.icon}`}>
+              <span
+                className={
+                  darkTheme
+                    ? `${styles.dark} ${styles.box} ${styles.icon}`
+                    : `${styles.box} ${styles.icon}`
+                }
+              >
                 <i className="fas fa-envelope"></i>
               </span>
               <input
-                className={`${styles.box} ${styles.input}`}
+                className={
+                  darkTheme
+                    ? `${styles.dark} ${styles.box} ${styles.input}`
+                    : `${styles.box} ${styles.input}`
+                }
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -76,11 +91,21 @@ const Auth = () => {
               />
             </div>
             <div className={styles.password}>
-              <span className={`${styles.box} ${styles.icon}`}>
+              <span
+                className={
+                  darkTheme
+                    ? `${styles.dark} ${styles.box} ${styles.icon}`
+                    : `${styles.box} ${styles.icon}`
+                }
+              >
                 <i className="fas fa-lock"></i>
               </span>
               <input
-                className={`${styles.box} ${styles.input}`}
+                className={
+                  darkTheme
+                    ? `${styles.dark} ${styles.box} ${styles.input}`
+                    : `${styles.box} ${styles.input}`
+                }
                 type="password"
                 name="password"
                 placeholder="Password"

@@ -14,3 +14,19 @@ body{
 input{
   background:none;
 }
+
+/* Dark mode */
+html.dark{
+  background-color:#19202C;
+  color:#fff;
+}
+
+/* html.dark header{
+  background-color:#19202C;
+  color:#fff;
+}
+
+html.dark header h1{
+  color:#fff;
+} */
+
