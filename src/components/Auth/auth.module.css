@@ -120,3 +120,9 @@
   font-size: 1.2em;
   padding-right: 5px;
 }
+
+/* error */
+.error {
+  font-size:0.7rem;
+  color: #e81c1c;
+}

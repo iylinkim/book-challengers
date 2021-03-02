@@ -13,7 +13,7 @@ const BookSearch = ({ bookInfo, setBookInfo }) => {
   return (
     <li className={styles.result} onClick={onClick}>
       <p className={styles.cover}>
-        <img src={thumbnail ? thumbnail : "default.png"} alt={title} />
+        <img src={thumbnail ? thumbnail : "/book-challengers/images/default.png"} alt={title} />
       </p>
       <ul className={styles.text}>
         <li className={styles.title}>{title}</li>

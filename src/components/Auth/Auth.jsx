@@ -6,6 +6,7 @@ const Auth = () => {
   const [newAccount, setNewAccount] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const toggleLoginSignout = () => setNewAccount((prev) => !prev);
 
   const onSubmit = async (event) => {
@@ -23,6 +24,7 @@ const Auth = () => {
         data = await authService.signInWithEmailAndPassword(email, password);
       }
     } catch (error) {
+      setError(error.message);
       console.log(error.message);
     }
   };
@@ -54,7 +56,7 @@ const Auth = () => {
   return (
     <div className={styles.wrap}>
       <div className={styles.img}>
-        <img src="authMain.jpg" alt="auth main" />
+        <img src="/book-challengers/images/authMain.jpg" alt="auth main" />
       </div>
       <div className={styles.info_wrap}>
         <div className={styles.info}>
@@ -87,6 +89,8 @@ const Auth = () => {
                 required
               />
             </div>
+            <span className={styles.error}>{error ? `${error} !` : ""}</span>
+
             <input
               className={`${styles.box} ${styles.submit}`}
               type="submit"

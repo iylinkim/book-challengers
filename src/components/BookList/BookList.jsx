@@ -68,7 +68,7 @@ const BookList = ({ book, setAdding, userObj, challengeName }) => {
         )}
         {Boolean(bookInfo.coverImg) ? (
           <div className={styles.ratingInfo}>
-            <img src={bookInfo.coverImg} alt="book cover"/>
+            <img class={styles.previewImg} src={bookInfo.coverImg} alt="book cover"/>
             <p>Rate this book</p>
             <p className={styles.ratingText}>
               <input

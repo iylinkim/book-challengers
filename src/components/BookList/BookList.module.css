@@ -47,6 +47,11 @@
   width:120px;
 }
 
+.previewImg{
+  width:120px;
+  height:174px;
+}
+
 .ratingText{
   display:flex;
   align-items:center;

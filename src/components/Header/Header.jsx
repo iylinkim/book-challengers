@@ -18,6 +18,9 @@ const Header = ({ userObj }) => {
           </div>
         )}
       </header>
+      <p className={styles.main}>
+        <img src="/book-challengers/images/main.jpg" alt="book" />
+      </p>
     </>
   );
 };

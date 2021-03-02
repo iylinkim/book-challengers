@@ -39,6 +39,14 @@
   animation: box 0.7s ease;
 }
 
+.subTitle{
+  width:50%;
+  padding-bottom:20px;
+  font-size:0.7rem;
+  color:#555;
+  text-align:left;
+}
+
 /* form */
 .form {
   display: flex;

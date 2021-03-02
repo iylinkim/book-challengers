@@ -1,5 +1,9 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import Auth from "../Auth/Auth";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -9,7 +13,7 @@ import Profile from "components/Profile/Profile";
 import styles from "components/Router/router.module.css";
 import Navigation from "components/Navigation/Navigation";
 
-const AppRouter = ({
+function AppRouter({
   ImageInput,
   loggedIn,
   book,
@@ -17,13 +21,13 @@ const AppRouter = ({
   setLoggedIn,
   ChallengeList,
   refreshUser,
-}) => {
+}) {
   return (
     <div className={styles.wrap}>
       <Header userObj={userObj} setLoggedIn={setLoggedIn} />
-      <section className={styles.section}>
-        <Router>
-          {loggedIn && <Navigation setLoggedIn={setLoggedIn} />}
+      <Router>
+        {loggedIn && <Navigation setLoggedIn={setLoggedIn} />}
+        <section className={styles.section}>
           <Switch>
             {loggedIn && userObj ? (
               <>
@@ -56,11 +60,11 @@ const AppRouter = ({
               </>
             )}
           </Switch>
-        </Router>
-      </section>
+        </section>
+      </Router>
       <Footer />
     </div>
   );
-};
+}
 
 export default AppRouter;

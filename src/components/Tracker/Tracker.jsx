@@ -49,9 +49,9 @@ const Tracker = ({ book, userObj }) => {
 
   return (
     <>
-      <p className={styles.main}>
-        <img src="images/main.jpg" alt="book" />
-      </p>
+      {/* <p className={styles.main}>
+        <img src="/book-challengers/images/main.jpg" alt="book" />
+      </p> */}
       <div className={styles.tracker}>
         <h2 className={styles.title}>
           {window.localStorage.getItem(LS_GOAL)} Books Challenges
