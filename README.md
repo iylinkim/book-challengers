@@ -2,7 +2,8 @@
 
 Simple book tracker app created with React.
 
-### 03/02 Add dark mode option
+### Updates
+ -03/02 Add dark mode option
 
 ## Screenshot
 
