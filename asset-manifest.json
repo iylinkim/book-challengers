@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/book-challengers/static/css/main.40e31821.chunk.css",
-    "main.js": "/book-challengers/static/js/main.228e24df.chunk.js",
-    "main.js.map": "/book-challengers/static/js/main.228e24df.chunk.js.map",
+    "main.css": "/book-challengers/static/css/main.ea50dc99.chunk.css",
+    "main.js": "/book-challengers/static/js/main.33230b3a.chunk.js",
+    "main.js.map": "/book-challengers/static/js/main.33230b3a.chunk.js.map",
     "runtime-main.js": "/book-challengers/static/js/runtime-main.6e69006c.js",
     "runtime-main.js.map": "/book-challengers/static/js/runtime-main.6e69006c.js.map",
-    "static/js/2.5e8114a2.chunk.js": "/book-challengers/static/js/2.5e8114a2.chunk.js",
-    "static/js/2.5e8114a2.chunk.js.map": "/book-challengers/static/js/2.5e8114a2.chunk.js.map",
+    "static/js/2.fc04f952.chunk.js": "/book-challengers/static/js/2.fc04f952.chunk.js",
+    "static/js/2.fc04f952.chunk.js.map": "/book-challengers/static/js/2.fc04f952.chunk.js.map",
     "index.html": "/book-challengers/index.html",
-    "static/css/main.40e31821.chunk.css.map": "/book-challengers/static/css/main.40e31821.chunk.css.map",
-    "static/js/2.5e8114a2.chunk.js.LICENSE.txt": "/book-challengers/static/js/2.5e8114a2.chunk.js.LICENSE.txt"
+    "static/css/main.ea50dc99.chunk.css.map": "/book-challengers/static/css/main.ea50dc99.chunk.css.map",
+    "static/js/2.fc04f952.chunk.js.LICENSE.txt": "/book-challengers/static/js/2.fc04f952.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6e69006c.js",
-    "static/js/2.5e8114a2.chunk.js",
-    "static/css/main.40e31821.chunk.css",
-    "static/js/main.228e24df.chunk.js"
+    "static/js/2.fc04f952.chunk.js",
+    "static/css/main.ea50dc99.chunk.css",
+    "static/js/main.33230b3a.chunk.js"
   ]
 }
