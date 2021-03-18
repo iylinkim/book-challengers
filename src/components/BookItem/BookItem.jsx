@@ -2,7 +2,7 @@ import React from "react";
 import styles from "components/BookItem/BookItem.module.css";
 import { dbService } from "fbase";
 
-const BookItem = ({ onClick, userObj, bookData, challengeTitle }) => {
+const BookItem = ({ onClick, userObj, bookData, challengeTitle, darkTheme }) => {
   const { thumbnail, rating } = bookData;
   const onDelete = async () => {
     const ref = dbService.ref(
@@ -16,7 +16,7 @@ const BookItem = ({ onClick, userObj, bookData, challengeTitle }) => {
         <img className={styles.thumbnail} src={thumbnail} alt="book cover" />
       </p>
       <div className={styles.rating}>
-        <span className={styles.ratingNum}>{rating}</span>
+        <span className={darkTheme ? `${styles.dark} ${styles.ratingNum}` : styles.ratingNum}>{rating}</span>
         <div className={styles.starWrap} style={{ width: rating * 0.2 * 75 }}>
           <p className={styles.stars}>
             <i className="fas fa-star"></i>

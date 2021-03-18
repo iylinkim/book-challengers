@@ -1,23 +1,25 @@
+@value makerWhite, makerDarkGrey from 'common/style.css';
+
 .nav {
-  padding-right:80px;
+  padding-right: 80px;
   position: absolute;
   right: 5%;
   top: 37px;
   display: flex;
   justify-content: space-between;
-  color:#333;
-  font-size:0.8rem;
+  color: makerDarkGrey;
+  font-size: 0.8rem;
 }
-.menu{
-    padding-left:7px;
-    transition: all 0.2s ease;
-    cursor:pointer;
+.menu {
+  padding-left: 7px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
-.menu:hover{
-    color:#2c9cb8;
+.menu:hover {
+  color: #2c9cb8;
 }
 
 /* dark mode */
-.dark.nav{
-  color:#fff;
+.dark.nav {
+  color: makerWhite;
 }

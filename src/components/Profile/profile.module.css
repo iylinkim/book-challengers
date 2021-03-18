@@ -1,3 +1,5 @@
+@value makerWhite, makerSkyBlue, makerLightPurple from 'common/style.css';
+
 @keyframes showing {
   0% {
     opacity: 0;
@@ -39,12 +41,12 @@
   animation: box 0.7s ease;
 }
 
-.subTitle{
-  width:50%;
-  padding-bottom:20px;
-  font-size:0.7rem;
-  color:#555;
-  text-align:left;
+.subTitle {
+  width: 50%;
+  padding-bottom: 20px;
+  font-size: 0.7rem;
+  color: #555;
+  text-align: left;
 }
 
 /* form */
@@ -59,7 +61,7 @@
   height: 70px;
   margin: 0 auto 15px;
   border-radius: 50%;
-  border: 1px solid #fff;
+  border: 1px solid makerWhite;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   display: flex;
@@ -67,11 +69,11 @@
 }
 
 .userName {
-  margin-bottom:15px;
-  line-height:25px;
+  margin-bottom: 15px;
+  line-height: 25px;
   text-indent: 10px;
-  border:none;
-  background-color:#efefef;
+  border: none;
+  background-color: #efefef;
 }
 
 .update {
@@ -79,12 +81,12 @@
   border-radius: 30px;
   border: 1px solid transparent;
   background: none;
-  background-image: linear-gradient(to left, #4cbcd8, #a59cd2);
-  color: #fff;
+  background-image: linear-gradient(to left, makerSkyBlue, makerLightPurple);
+  color: makerWhite;
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
-.update:hover{
-  opacity:0.7;
+.update:hover {
+  opacity: 0.7;
 }

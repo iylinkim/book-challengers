@@ -1,10 +1,12 @@
+@value makerWhite, makerDarkGrey, makerLightPurple from 'common/style.css';
+
 .progressWrap {
   position: relative;
 }
 .progress {
   width: 100%;
   height: 25px;
-  border: 2px solid #a59cd2;
+  border: 2px solid makerLightPurple;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -13,14 +15,14 @@
 .progressBar {
   position: absolute;
   height: 25px;
-  background-color: #a59cd2;
+  background-color: makerLightPurple;
 }
 
 .barNum {
   position: absolute;
   top: 25px;
   font-size: 0.8rem;
-  color: #333;
+  color: makerDarkGrey;
 }
 
 .barNum.start {
@@ -42,7 +44,7 @@
 .home {
   padding: 15px 0;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: makerWhite;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   border-left: 5px solid #5eafac;
   border-top-right-radius: 5px;
@@ -63,14 +65,14 @@
 
 .title {
   /* padding-bottom:5px; */
-  color: #333;
+  color: makerDarkGrey;
   font-size: 1rem;
 }
 
 /* darkMode */
 .dark.title,
 .dark.barNum {
-  color: #fff;
+  color: makerWhite;
 }
 
 .dark.home {

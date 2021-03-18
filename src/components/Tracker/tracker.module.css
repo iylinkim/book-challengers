@@ -1,3 +1,5 @@
+@value makerWhite, makerBlack, makerDarkGrey, makerSkyBlue, makerLightPurple from 'common/style.css';
+
 .main {
   width: 100%;
   height: 150px;
@@ -40,10 +42,10 @@
 }
 
 .left {
-  padding:30px 0;
+  padding: 30px 0;
   font-size: 1em;
   text-align: right;
-  color: #333;
+  color: makerDarkGrey;
 }
 
 .left span {
@@ -56,7 +58,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom:30px;
+  padding-bottom: 30px;
 }
 
 .tracker {
@@ -66,8 +68,8 @@
 .blank {
   width: 120px;
   height: 177px;
-  border: 1px dashed #a59cd2;
-  color: #a59cd2;
+  border: 1px dashed makerLightPurple;
+  color: makerLightPurple;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +100,7 @@
 
 .achieved span {
   padding-left: 10px;
-  color: #000;
+  color: makerBlack;
 }
 
 .logout {
@@ -106,12 +108,12 @@
   border-radius: 30px;
   position: absolute;
   right: 2%;
-  top:-55px;
+  top: -55px;
   border: none;
   background: none;
   outline: none;
-  background-image: linear-gradient(to left, #4cbcd8, #a59cd2);
-  color: #fff;
+  background-image: linear-gradient(to left, makerSkyBlue, makerLightPurple);
+  color: makerWhite;
   cursor: pointer;
 }
 .logout:hover {
@@ -119,10 +121,10 @@
 }
 
 /* darkMode */
-.dark.left{
-  color:#fff;
+.dark.left {
+  color: makerWhite;
 }
 
-.dark.left span{
-  color:#EB5473;
+.dark.left span {
+  color: #eb5473;
 }

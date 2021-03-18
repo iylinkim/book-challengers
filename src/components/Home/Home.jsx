@@ -3,7 +3,7 @@ import { dbService } from "fbase";
 import styles from "components/Home/home.module.css";
 import Challenges from "../Challenges/Challenges";
 
-const Home = ({ userObj }) => {
+const Home = ({ userObj, darkTheme }) => {
   const [goal, setGoal] = useState(0);
   const [title, setTitle] = useState("");
 
@@ -30,7 +30,7 @@ const Home = ({ userObj }) => {
       <h2 className={styles.title}>Set your goal</h2>
       <form className={styles.form} onSubmit={onSubmit}>
         <input
-          className={styles.input}
+          className={darkTheme ? `${styles.dark} ${styles.input}` : styles.input}
           onChange={onChange}
           type="number"
           value={goal}
@@ -42,7 +42,7 @@ const Home = ({ userObj }) => {
         <span>books</span>
         <p>
           <input
-            className={`${styles.input} ${styles.titleInput}`}
+            className={darkTheme ? `${styles.dark} ${styles.input} ${styles.titleInput}` : `${styles.input} ${styles.titleInput}`}
             onChange={onChange}
             type="text"
             value={title}

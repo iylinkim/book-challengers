@@ -79,6 +79,7 @@ const Tracker = ({ book, userObj, darkTheme }) => {
                 userObj={userObj}
                 bookData={bookContainers[key]}
                 challengeTitle={challengeTitle}
+                darkTheme={darkTheme}
               />
             );
           })}

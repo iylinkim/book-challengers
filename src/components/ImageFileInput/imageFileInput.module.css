@@ -1,3 +1,5 @@
+@value makerWhite from 'common/style.css';
+
 .input {
   display: none;
 }
@@ -18,4 +20,9 @@
 }
 .button:hover {
   box-shadow: 0 0 5px rgb(76, 188, 216, 0.5);
+}
+
+/* dark mode */
+.dark.button {
+  color: makerWhite;
 }

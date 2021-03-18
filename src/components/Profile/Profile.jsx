@@ -41,7 +41,7 @@ const Profile = ({
         <p className={styles.profileImg}>
           <img src={newUserObj.photoURL} alt={userObj.displayName} />
         </p>
-        <ImageInput setNewUserObj={setNewUserObj} />
+        <ImageInput setNewUserObj={setNewUserObj} darkTheme={darkTheme}/>
         <input
           className={styles.userName}
           type="text"

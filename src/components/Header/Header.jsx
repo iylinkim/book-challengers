@@ -23,9 +23,11 @@ const Header = ({ userObj, darkTheme }) => {
           </div>
         )}
       </header>
-      <p className={styles.main}>
-        <img src="/book-challengers/images/main.jpg" alt="book" />
-      </p>
+      {userObj && (
+        <p className={styles.main}>
+          <img src="/book-challengers/images/main.jpg" alt="book" />
+        </p>
+      )}
     </>
   );
 };

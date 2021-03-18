@@ -29,13 +29,19 @@ const AppRouter = ({
       />
       <ToggleBtn darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <Router>
-        {loggedIn && <Navigation setLoggedIn={setLoggedIn} darkTheme={darkTheme}/>}
+        {loggedIn && (
+          <Navigation setLoggedIn={setLoggedIn} darkTheme={darkTheme} />
+        )}
         <section className={styles.section}>
           <Switch>
             {loggedIn && userObj ? (
               <>
                 <Route exact path="/">
-                  <Home userObj={userObj} loggedIn={loggedIn} />
+                  <Home
+                    userObj={userObj}
+                    loggedIn={loggedIn}
+                    darkTheme={darkTheme}
+                  />
                 </Route>
                 <Route exact path="/tracker">
                   <Tracker
@@ -60,14 +66,14 @@ const AppRouter = ({
             ) : (
               <>
                 <Route exact path="/">
-                  <Auth darkTheme={darkTheme}/>
+                  <Auth darkTheme={darkTheme} />
                 </Route>
               </>
             )}
           </Switch>
         </section>
       </Router>
-      <Footer darkTheme={darkTheme}/>
+      <Footer darkTheme={darkTheme} />
     </div>
   );
 };

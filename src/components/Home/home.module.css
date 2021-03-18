@@ -1,3 +1,5 @@
+@value makerWhite, makerSkyBlue, makerLightPurple from 'common/style.css';
+
 .container {
   width: 60%;
   text-align: center;
@@ -19,20 +21,27 @@
   font-size: 1.2em;
 }
 
-.titleInput{
-  font-size:0.8em;
-  padding-bottom:5px;
+.titleInput {
+  font-size: 0.8em;
+  padding-bottom: 5px;
 }
 
 .submit input {
   padding: 5px 50px;
-  margin-bottom:50px;
+  margin-bottom: 50px;
   border-radius: 30px;
   border: none;
   background: none;
-  background-image: linear-gradient(to left, #4cbcd8, #a59cd2);
-  color: #fff;
-  cursor:pointer;
+  background-image: linear-gradient(to left, makerSkyBlue, makerLightPurple);
+  color: makerWhite;
+  cursor: pointer;
 }
 
+/* dark mode */
+.dark.input {
+  color: #9399a0;
+}
 
+.dark.input:selected {
+  background-color: pink;
+}

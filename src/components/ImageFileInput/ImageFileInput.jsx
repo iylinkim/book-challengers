@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "components/ImageFileInput/imageFileInput.module.css";
 
-const ImageFileInput = ({ imageUploader, setNewUserObj }) => {
+const ImageFileInput = ({ imageUploader, setNewUserObj, darkTheme }) => {
   const inputFileRef = useRef();
 
   const onFileChange = async (event) => {
@@ -26,7 +26,7 @@ const ImageFileInput = ({ imageUploader, setNewUserObj }) => {
         accept="image/*"
         onChange={onFileChange}
       />
-      <button className={styles.button} onClick={onClick}>Change Profile Photo</button>
+      <button className={darkTheme ? `${styles.dark} ${styles.button}` : styles.button} onClick={onClick}>Change Profile Photo</button>
     </div>
   );
 };

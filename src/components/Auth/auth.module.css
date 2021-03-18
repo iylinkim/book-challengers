@@ -1,7 +1,10 @@
+@value makerWhite, makerDarkGrey, makerShadow from 'common/style.css';
+
 .wrap {
   width: 500px;
   height: 400px;
   display: flex;
+  box-shadow: 0 0 10px makerShadow;
 }
 
 .wrap:after {
@@ -31,7 +34,7 @@
   padding: 0 5%;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: makerWhite;
 }
 
 .info {
@@ -107,14 +110,14 @@
   width: 49%;
   font-size: 0.8rem;
   background-color: #3d73f3;
-  color: #fff;
+  color: makerWhite;
   cursor: pointer;
 }
 .social:hover {
   opacity: 0.9;
 }
 .social:last-child {
-  background-color: #333;
+  background-color: makerDarkGrey;
 }
 .social span {
   font-size: 1.2em;
@@ -134,5 +137,5 @@
 
 .dark.box {
   background-color: #3a3d46;
-  color:#fff;
+  color: makerWhite;
 }

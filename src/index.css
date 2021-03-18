@@ -1,32 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Pacifico&family=Roboto&family=Zilla+Slab&display=swap");
+@value makerWhite, makerLightGrey, makerDeepDarkGrey from 'common/style.css';
+
+
+
 html,
 body,
 #root {
   height: 100%;
 }
 
-body, input, select, button {
+
+body,
+input,
+select,
+button {
   font-family: "Zilla Slab", sans-serif;
 }
-body{
+body {
   /* background-color:#efefef; */
 }
-input{
-  background:none;
+input {
+  background: none;
 }
 
 /* Dark mode */
-html.dark{
-  background-color:#19202C;
-  color:#fff;
+html.dark {
+  background-color: #19202c;
+  color: makerWhite;
 }
 
 /* html.dark header{
   background-color:#19202C;
-  color:#fff;
+  color:makerWhite;
 }
 
 html.dark header h1{
-  color:#fff;
+  color:makerWhite;
 } */
-

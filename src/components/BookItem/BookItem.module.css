@@ -1,3 +1,6 @@
+@value makerWhite from 'common/style.css';
+
+
 .book {
   height: 174px;
   margin-bottom: 50px;
@@ -6,19 +9,18 @@
   position: relative;
 }
 
-.book:hover .thumbnail{
-  opacity:0.7;
+.book:hover .thumbnail {
+  opacity: 0.7;
 }
 
-.book:hover .deleteBtn{
-  display:block;
+.book:hover .deleteBtn {
+  display: block;
 }
 
 .thumbnail {
   width: 120px;
   height: 174px;
-  transition:opacity 0.2s ease;
-
+  transition: opacity 0.2s ease;
 }
 
 .starWrap {
@@ -40,15 +42,20 @@
 }
 
 .deleteBtn {
-  padding:5px;
-  border:none;
-  border-radius:30px;
+  padding: 5px;
+  border: none;
+  border-radius: 30px;
   background-color: #777;
-  box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  cursor:pointer;
-  display:none;
+  cursor: pointer;
+  display: none;
+}
+
+/* dark mode */
+.dark.ratingNum {
+  color: makerWhite;
 }
