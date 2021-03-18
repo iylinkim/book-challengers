@@ -2,7 +2,6 @@
 
 Simple book tracker app created with React.
 
-<img width="100%" src="/book-challengers/images/book_challenger_demo.gif"/>
 
 ### Updates
 
