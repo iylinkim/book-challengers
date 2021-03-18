@@ -36,7 +36,7 @@ const Profile = ({
 
   return (
     <>
-      <h3 className={styles.title}>{userObj.displayName}'s Profile</h3>
+      <h3 className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}>{userObj.displayName}'s Profile</h3>
       <form className={styles.form} onSubmit={onSubmit}>
         <p className={styles.profileImg}>
           <img src={newUserObj.photoURL} alt={userObj.displayName} />
@@ -50,7 +50,7 @@ const Profile = ({
         />
         <input className={styles.update} type="submit" value="Update" />
       </form>
-      <h3 className={styles.title}>Challenges </h3>
+      <h3 className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}>Challenges </h3>
       <p className={styles.subTitle}>
         Click each section if you go to that challenge
       </p>

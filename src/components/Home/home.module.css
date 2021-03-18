@@ -1,4 +1,4 @@
-@value makerWhite, makerSkyBlue, makerLightPurple from 'common/style.css';
+@value makerWhite, makerSkyBlue, makerLightPurple, makerLightGrey from 'common/style.css';
 
 .container {
   width: 60%;
@@ -44,4 +44,9 @@
 
 .dark.input:selected {
   background-color: pink;
+}
+
+.dark.title,
+.dark.books_text {
+  color: makerLightGrey;
 }

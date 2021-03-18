@@ -1,4 +1,4 @@
-@value makerWhite, makerBlack, makerDarkGrey, makerSkyBlue, makerLightPurple from 'common/style.css';
+@value makerWhite, makerBlack, makerDarkGrey, makerSkyBlue, makerLightPurple, makerLightGrey from 'common/style.css';
 
 .main {
   width: 100%;
@@ -127,4 +127,9 @@
 
 .dark.left span {
   color: #eb5473;
+}
+
+.dark.title,
+.dark.challenge_name {
+  color: makerLightGrey;
 }

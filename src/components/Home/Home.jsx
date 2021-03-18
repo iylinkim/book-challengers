@@ -27,10 +27,16 @@ const Home = ({ userObj, darkTheme }) => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Set your goal</h2>
+      <h2
+        className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}
+      >
+        Set your goal
+      </h2>
       <form className={styles.form} onSubmit={onSubmit}>
         <input
-          className={darkTheme ? `${styles.dark} ${styles.input}` : styles.input}
+          className={
+            darkTheme ? `${styles.dark} ${styles.input}` : styles.input
+          }
           onChange={onChange}
           type="number"
           value={goal}
@@ -39,10 +45,20 @@ const Home = ({ userObj, darkTheme }) => {
           max="100"
           step="10"
         />
-        <span>books</span>
+        <span
+          className={
+            darkTheme ? `${styles.dark} ${styles.books_text}` : styles.books_text
+          }
+        >
+          books
+        </span>
         <p>
           <input
-            className={darkTheme ? `${styles.dark} ${styles.input} ${styles.titleInput}` : `${styles.input} ${styles.titleInput}`}
+            className={
+              darkTheme
+                ? `${styles.dark} ${styles.input} ${styles.titleInput}`
+                : `${styles.input} ${styles.titleInput}`
+            }
             onChange={onChange}
             type="text"
             value={title}

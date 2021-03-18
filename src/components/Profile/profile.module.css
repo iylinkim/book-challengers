@@ -1,4 +1,4 @@
-@value makerWhite, makerSkyBlue, makerLightPurple from 'common/style.css';
+@value makerWhite, makerSkyBlue, makerLightPurple, makerLightGrey from 'common/style.css';
 
 @keyframes showing {
   0% {
@@ -89,4 +89,9 @@
 
 .update:hover {
   opacity: 0.7;
+}
+
+/* dark mode */
+.dark.title {
+  color: makerLightGrey;
 }

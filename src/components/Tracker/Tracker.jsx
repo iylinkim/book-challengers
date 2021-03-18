@@ -49,10 +49,22 @@ const Tracker = ({ book, userObj, darkTheme }) => {
   return (
     <>
       <div className={styles.tracker}>
-        <h2 className={styles.title}>
+        <h2
+          className={
+            darkTheme ? `${styles.dark} ${styles.title}` : styles.title
+          }
+        >
           {window.localStorage.getItem(LS_GOAL)} Books Challenges
         </h2>
-        <h4>"{window.localStorage.getItem(LS_CHALLENGE)}"</h4>
+        <h4
+          className={
+            darkTheme
+              ? `${styles.dark} ${styles.challenge_name}`
+              : styles.challenge_name
+          }
+        >
+          "{window.localStorage.getItem(LS_CHALLENGE)}"
+        </h4>
         {left > 0 && (
           <h3
             className={
