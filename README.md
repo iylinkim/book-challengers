@@ -2,6 +2,8 @@
 
 Simple book tracker app created with React.
 
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/66230563/111664340-07d61380-8855-11eb-968d-8cfb1d05803a.gif)
+
 
 ### Updates
 
