@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "components/Theme/theme.module.css";
 
 const Theme = ({ darkTheme, setDarkTheme }) => {
-  //   const [darkTheme, setDarkTheme] = useState(false);
   const DARK = "dark";
 
   const handleTheme = (isDark) => {
