@@ -24,6 +24,7 @@ const Home = ({ userObj, darkTheme }) => {
       bookGoal: goal,
     });
   };
+  console.log(title)
 
   return (
     <div className={styles.container}>
@@ -64,6 +65,7 @@ const Home = ({ userObj, darkTheme }) => {
             value={title}
             name="title"
             placeholder="Enter your challenge title"
+            required
           />
         </p>
         <p className={styles.submit}>

@@ -30,6 +30,7 @@ const Challenge = ({ title, info, darkTheme }) => {
     (progress.totalBookCount / info.goal.bookGoal) * 100
   );
 
+
   return (
     <li
       onClick={goToTracker}
