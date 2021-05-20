@@ -18,6 +18,7 @@ const Tracker = ({ book, userObj, darkTheme }) => {
   const onClick = () => setAdding(true);
 
   useEffect(() => {
+    console.log(history.location.state)
     if (history.location.state) {
       window.localStorage.setItem(LS_CHALLENGE, history.location.title);
       window.localStorage.setItem(

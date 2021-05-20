@@ -76,7 +76,7 @@ const BookList = ({ book, setAdding, userObj, challengeName, darkTheme }) => {
         {Boolean(bookInfo.coverImg) ? (
           <div className={styles.ratingInfo}>
             <img
-              class={styles.previewImg}
+              className={styles.previewImg}
               src={bookInfo.coverImg}
               alt="book cover"
             />

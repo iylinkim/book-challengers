@@ -11,6 +11,7 @@ import Theme from "components/Theme/Theme";
 const KEY = process.env.REACT_APP_API_KEY;
 const book = new Book(KEY);
 const imageUploader = new ImageUploader();
+console.log(imageUploader)
 const ImageInput = (props) => <ImageFileInput {...props} imageUploader={imageUploader}/>;
 const ToggleBtn = (props) => <Theme {...props}/> 
 

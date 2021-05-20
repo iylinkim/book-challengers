@@ -2,7 +2,6 @@ import React from "react";
 import styles from "components/Header/header.module.css";
 
 const Header = ({ userObj, darkTheme }) => {
-  console.log(darkTheme);
   return (
     <>
       <header
