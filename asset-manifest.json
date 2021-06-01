@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/book-challengers/static/css/main.b4abc059.chunk.css",
-    "main.js": "/book-challengers/static/js/main.1d994393.chunk.js",
-    "main.js.map": "/book-challengers/static/js/main.1d994393.chunk.js.map",
+    "main.js": "/book-challengers/static/js/main.f90c100b.chunk.js",
+    "main.js.map": "/book-challengers/static/js/main.f90c100b.chunk.js.map",
     "runtime-main.js": "/book-challengers/static/js/runtime-main.6e69006c.js",
     "runtime-main.js.map": "/book-challengers/static/js/runtime-main.6e69006c.js.map",
-    "static/js/2.772e0ef5.chunk.js": "/book-challengers/static/js/2.772e0ef5.chunk.js",
-    "static/js/2.772e0ef5.chunk.js.map": "/book-challengers/static/js/2.772e0ef5.chunk.js.map",
+    "static/js/2.cbb52c1f.chunk.js": "/book-challengers/static/js/2.cbb52c1f.chunk.js",
+    "static/js/2.cbb52c1f.chunk.js.map": "/book-challengers/static/js/2.cbb52c1f.chunk.js.map",
     "index.html": "/book-challengers/index.html",
     "static/css/main.b4abc059.chunk.css.map": "/book-challengers/static/css/main.b4abc059.chunk.css.map",
-    "static/js/2.772e0ef5.chunk.js.LICENSE.txt": "/book-challengers/static/js/2.772e0ef5.chunk.js.LICENSE.txt"
+    "static/js/2.cbb52c1f.chunk.js.LICENSE.txt": "/book-challengers/static/js/2.cbb52c1f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6e69006c.js",
-    "static/js/2.772e0ef5.chunk.js",
+    "static/js/2.cbb52c1f.chunk.js",
     "static/css/main.b4abc059.chunk.css",
-    "static/js/main.1d994393.chunk.js"
+    "static/js/main.f90c100b.chunk.js"
   ]
 }
