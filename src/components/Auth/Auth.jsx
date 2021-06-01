@@ -1,87 +1,36 @@
-import { authService, firebaseInstance } from "fbase";
-import React, { useState } from "react";
+import React from "react";
 import styles from "components/Auth/auth.module.css";
+import { toggleClassName } from "utils";
+import { useAccount } from "hooks/state";
 
 const Auth = ({ darkTheme }) => {
-  const [newAccount, setNewAccount] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const toggleLoginSignout = () => setNewAccount((prev) => !prev);
+  const {
+    onSubmit,
+    onChange,
+    email,
+    password,
+    error,
+    newAccount,
+    toggleLoginSignout,
+    onSocialSignIn,
+  } = useAccount();
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      let data;
-      if (newAccount) {
-        //Sign Up
-        data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
-      } else {
-        //Sign In
-        data = await authService.signInWithEmailAndPassword(email, password);
-      }
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const onChange = (event) => {
-    const {
-      target: { name, value },
-    } = event;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  };
-
-  const onSocialSignIn = (event) => {
-    const {
-      target: { name },
-    } = event;
-    let provider;
-    if (name === "Google") {
-      provider = new firebaseInstance.auth.GoogleAuthProvider();
-      authService.signInWithPopup(provider);
-    } else if (name === "Github") {
-      provider = new firebaseInstance.auth.GithubAuthProvider();
-      authService.signInWithPopup(provider);
-    }
-  };
   return (
     <div className={styles.wrap}>
       <div className={styles.img}>
         <img src="/book-challengers/images/authMain.jpg" alt="auth main" />
       </div>
-      <div
-        className={
-          darkTheme
-            ? `${styles.dark} ${styles.info_wrap}`
-            : `${styles.info_wrap}`
-        }
-      >
+      <div className={toggleClassName(darkTheme, styles, "info_wrap")}>
         <div className={styles.info}>
           <form onSubmit={onSubmit} className={styles.form}>
             <div className={styles.email}>
               <span
-                className={
-                  darkTheme
-                    ? `${styles.dark} ${styles.box} ${styles.icon}`
-                    : `${styles.box} ${styles.icon}`
-                }
+                className={toggleClassName(darkTheme, styles, "box", "icon")}
               >
                 <i className="fas fa-envelope"></i>
               </span>
               <input
-                className={
-                  darkTheme
-                    ? `${styles.dark} ${styles.box} ${styles.input}`
-                    : `${styles.box} ${styles.input}`
-                }
+                className={toggleClassName(darkTheme, styles, "box", "input")}
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -92,20 +41,12 @@ const Auth = ({ darkTheme }) => {
             </div>
             <div className={styles.password}>
               <span
-                className={
-                  darkTheme
-                    ? `${styles.dark} ${styles.box} ${styles.icon}`
-                    : `${styles.box} ${styles.icon}`
-                }
+                className={toggleClassName(darkTheme, styles, "box", "icon")}
               >
                 <i className="fas fa-lock"></i>
               </span>
               <input
-                className={
-                  darkTheme
-                    ? `${styles.dark} ${styles.box} ${styles.input}`
-                    : `${styles.box} ${styles.input}`
-                }
+                className={toggleClassName(darkTheme, styles, "box", "input")}
                 type="password"
                 name="password"
                 placeholder="Password"

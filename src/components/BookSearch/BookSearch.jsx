@@ -1,4 +1,5 @@
 import styles from "components/BookSearch/BookSearch.module.css";
+import { toggleClassName } from "utils";
 
 const BookSearch = ({ bookInfo, setBookInfo, darkTheme }) => {
   const { title, thumbnail, authors } = bookInfo;
@@ -12,9 +13,7 @@ const BookSearch = ({ bookInfo, setBookInfo, darkTheme }) => {
   };
   return (
     <li
-      className={
-        darkTheme ? `${styles.dark} ${styles.result}` : `${styles.result}`
-      }
+      className={toggleClassName(darkTheme, styles, "result")}
       onClick={onClick}
     >
       <p className={styles.cover}>

@@ -1,35 +1,11 @@
 import AppRouter from "components/Router/Router";
 import Challenges from "components/Challenges/Challenges";
-import { authService } from "fbase";
-import { useEffect, useState } from "react";
+import useAuth from "hooks/state";
 import "./app.css";
 
 function App({ ImageInput, ToggleBtn, book }) {
-  const [init, setInit] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(authService.currentUser);
-  const [userObj, setUserObj] = useState(null);
   const ChallengeList = (props) => <Challenges {...props} userObj={userObj} />;
-  useEffect(() => {
-    authService.onAuthStateChanged((user) => {
-      if (user) {
-        setLoggedIn(true);
-        setUserObj(user);
-      } else {
-        setLoggedIn(false);
-        setUserObj(null);
-      }
-      setInit(true);
-    });
-  }, [loggedIn, userObj]);
-
-  const refreshUser = () => {
-    const user = authService.currentUser;
-    setUserObj({
-      displayName: user.displayName,
-      uid: user.uid,
-      updateProfile: (args) => user.updateProfile(args),
-    });
-  };
+  const { init, loggedIn, setLoggedIn, userObj, refreshUser } = useAuth();
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styles from "components/ImageFileInput/imageFileInput.module.css";
+import { toggleClassName } from "utils";
 
 const ImageFileInput = ({ imageUploader, setNewUserObj, darkTheme }) => {
   const inputFileRef = useRef();
@@ -26,7 +27,12 @@ const ImageFileInput = ({ imageUploader, setNewUserObj, darkTheme }) => {
         accept="image/*"
         onChange={onFileChange}
       />
-      <button className={darkTheme ? `${styles.dark} ${styles.button}` : styles.button} onClick={onClick}>Change Profile Photo</button>
+      <button
+        className={toggleClassName(darkTheme, styles, "button")}
+        onClick={onClick}
+      >
+        Change Profile Photo
+      </button>
     </div>
   );
 };

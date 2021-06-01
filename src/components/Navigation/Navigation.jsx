@@ -2,6 +2,7 @@ import React from "react";
 import styles from "components/Navigation/navigation.module.css";
 import { useHistory } from "react-router-dom";
 import { authService } from "fbase";
+import { toggleClassName } from "utils";
 
 const Navigation = ({ setLoggedIn, darkTheme }) => {
   const history = useHistory();
@@ -21,9 +22,7 @@ const Navigation = ({ setLoggedIn, darkTheme }) => {
     }
   };
   return (
-    <ul
-      className={darkTheme ? `${styles.dark} ${styles.nav}` : `${styles.nav}`}
-    >
+    <ul className={toggleClassName(darkTheme, styles, "nav")}>
       <li className={styles.menu} onClick={onClick}>
         Home
       </li>

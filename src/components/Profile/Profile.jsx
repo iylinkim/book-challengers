@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "components/Profile/profile.module.css";
+import { toggleClassName } from "utils";
 
 const Profile = ({
   ImageInput,
@@ -36,12 +37,14 @@ const Profile = ({
 
   return (
     <>
-      <h3 className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}>{userObj.displayName}'s Profile</h3>
+      <h3 className={toggleClassName(darkTheme, styles, "title")}>
+        {userObj.displayName}'s Profile
+      </h3>
       <form className={styles.form} onSubmit={onSubmit}>
         <p className={styles.profileImg}>
           <img src={newUserObj.photoURL} alt={userObj.displayName} />
         </p>
-        <ImageInput setNewUserObj={setNewUserObj} darkTheme={darkTheme}/>
+        <ImageInput setNewUserObj={setNewUserObj} darkTheme={darkTheme} />
         <input
           className={styles.userName}
           type="text"
@@ -50,11 +53,13 @@ const Profile = ({
         />
         <input className={styles.update} type="submit" value="Update" />
       </form>
-      <h3 className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}>Challenges </h3>
+      <h3 className={toggleClassName(darkTheme, styles, "title")}>
+        Challenges{" "}
+      </h3>
       <p className={styles.subTitle}>
         Click each section if you go to that challenge
       </p>
-      <ChallengeList darkTheme={darkTheme}/>
+      <ChallengeList darkTheme={darkTheme} />
     </>
   );
 };

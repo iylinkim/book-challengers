@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "components/Challenge/challenge.module.css";
+import { toggleClassName } from "utils";
 
 const Challenge = ({ title, info, darkTheme }) => {
   const [progress, setProgress] = useState({});
@@ -30,7 +31,6 @@ const Challenge = ({ title, info, darkTheme }) => {
     (progress.totalBookCount / info.goal.bookGoal) * 100
   );
 
-
   return (
     <li
       onClick={goToTracker}
@@ -40,13 +40,7 @@ const Challenge = ({ title, info, darkTheme }) => {
           : `${styles.profile}`
       }
     >
-      <p
-        className={
-          darkTheme ? `${styles.dark} ${styles.title}` : `${styles.title}`
-        }
-      >
-        {title}
-      </p>
+      <p className={toggleClassName(darkTheme, styles, "title")}>{title}</p>
       {history.location.pathname === "/profile" && (
         <div className={styles.progressWrap}>
           <div className={styles.progress}>
@@ -56,20 +50,12 @@ const Challenge = ({ title, info, darkTheme }) => {
             ></p>
           </div>
           <span
-            className={
-              darkTheme
-                ? `${styles.dark} ${styles.start} ${styles.barNum}`
-                : `${styles.start} ${styles.barNum}`
-            }
+            className={toggleClassName(darkTheme, styles, "start", "barNum")}
           >
             0
           </span>
           <span
-            className={
-              darkTheme
-                ? `${styles.dark} ${styles.done} ${styles.barNum}`
-                : `${styles.done} ${styles.barNum}`
-            }
+            className={toggleClassName(darkTheme, styles, "done", "barNum")}
           >
             {info.goal.bookGoal} books
           </span>

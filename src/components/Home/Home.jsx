@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { dbService } from "fbase";
 import styles from "components/Home/home.module.css";
 import Challenges from "../Challenges/Challenges";
+import { toggleClassName } from "utils";
 
 const Home = ({ userObj, darkTheme }) => {
   const [goal, setGoal] = useState(0);
@@ -11,6 +12,7 @@ const Home = ({ userObj, darkTheme }) => {
     const {
       target: { value, name },
     } = event;
+
     if (name === "goal") {
       setGoal(value);
     } else if (name === "title") {
@@ -20,24 +22,22 @@ const Home = ({ userObj, darkTheme }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.ref(`${userObj.uid}/${title}/goal`).set({
-      bookGoal: goal,
-    });
+    if (title.length) {
+      // when challenge name is not empty
+      await dbService.ref(`${userObj.uid}/${title}/goal`).set({
+        bookGoal: goal,
+      });
+    }
   };
-  console.log(title)
 
   return (
     <div className={styles.container}>
-      <h2
-        className={darkTheme ? `${styles.dark} ${styles.title}` : styles.title}
-      >
+      <h2 className={toggleClassName(darkTheme, styles, "title")}>
         Set your goal
       </h2>
       <form className={styles.form} onSubmit={onSubmit}>
         <input
-          className={
-            darkTheme ? `${styles.dark} ${styles.input}` : styles.input
-          }
+          className={toggleClassName(darkTheme, styles, "input")}
           onChange={onChange}
           type="number"
           value={goal}
@@ -46,20 +46,17 @@ const Home = ({ userObj, darkTheme }) => {
           max="100"
           step="10"
         />
-        <span
-          className={
-            darkTheme ? `${styles.dark} ${styles.books_text}` : styles.books_text
-          }
-        >
+        <span className={toggleClassName(darkTheme, styles, "books_text")}>
           books
         </span>
         <p>
           <input
-            className={
-              darkTheme
-                ? `${styles.dark} ${styles.input} ${styles.titleInput}`
-                : `${styles.input} ${styles.titleInput}`
-            }
+            className={toggleClassName(
+              darkTheme,
+              styles,
+              "input",
+              "titleInput"
+            )}
             onChange={onChange}
             type="text"
             value={title}

@@ -1,14 +1,11 @@
 import React from "react";
 import styles from "components/Header/header.module.css";
+import { toggleClassName } from "utils";
 
 const Header = ({ userObj, darkTheme }) => {
   return (
     <>
-      <header
-        className={
-          darkTheme ? `${styles.dark} ${styles.header}` : `${styles.header}`
-        }
-      >
+      <header className={toggleClassName(darkTheme, styles, "header")}>
         <h1>
           <i className="fas fa-book"></i>
           <span>Book Challengers</span>

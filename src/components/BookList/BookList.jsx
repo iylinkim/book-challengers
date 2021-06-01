@@ -2,19 +2,13 @@ import React, { useState, useRef } from "react";
 import BookSearch from "../BookSearch/BookSearch";
 import styles from "components/BookList/BookList.module.css";
 import { dbService } from "fbase";
+import { toggleClassName } from "utils";
+import { useBooks } from "hooks/state";
 
 const BookList = ({ book, setAdding, userObj, challengeName, darkTheme }) => {
-  const [books, setBooks] = useState([]);
-  const [bookInfo, setBookInfo] = useState({});
   const inputRef = useRef();
   const ratingRef = useRef();
-
-  const onClick = (event) => {
-    event.preventDefault();
-    book
-      .search(inputRef.current.value)
-      .then((results) => setBooks(results.data.documents));
-  };
+  const { books, bookInfo, setBookInfo, onClick } = useBooks(book, inputRef);
 
   const submitRating = async () => {
     const rating = ratingRef.current.value;
@@ -40,9 +34,7 @@ const BookList = ({ book, setAdding, userObj, challengeName, darkTheme }) => {
     <div className={styles.list}>
       <form className={styles.form}>
         <input
-          className={
-            darkTheme ? `${styles.dark} ${styles.input}` : `${styles.input}`
-          }
+          className={toggleClassName(darkTheme, styles, "input")}
           ref={inputRef}
           type="text"
           placeholder="Search"
@@ -53,11 +45,7 @@ const BookList = ({ book, setAdding, userObj, challengeName, darkTheme }) => {
       </form>
       <div className={styles.bookContainer}>
         {books.length > 0 ? (
-          <ul
-            className={
-              darkTheme ? `${styles.dark} ${styles.books}` : `${styles.books}`
-            }
-          >
+          <ul className={toggleClassName(darkTheme, styles, "books")}>
             {books.map((bookInfo) => (
               <BookSearch
                 key={bookInfo.isbn}
@@ -94,11 +82,7 @@ const BookList = ({ book, setAdding, userObj, challengeName, darkTheme }) => {
               />
               <span>/5</span>
               <button
-                className={
-                  darkTheme
-                    ? `${styles.dark} ${styles.register}`
-                    : `${styles.register}`
-                }
+                className={toggleClassName(darkTheme, styles, "register")}
                 onClick={submitRating}
               >
                 register

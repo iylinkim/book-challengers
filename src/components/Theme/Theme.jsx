@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "components/Theme/theme.module.css";
+import { toggleClassName } from "utils";
 
 const Theme = ({ darkTheme, setDarkTheme }) => {
   const DARK = "dark";
@@ -32,28 +33,21 @@ const Theme = ({ darkTheme, setDarkTheme }) => {
       handleTheme(ls_theme);
     } else {
       //localStorage가 비어있을 때
-      console.log("localStorage 비어있음")
+      console.log("localStorage 비어있음");
 
-      const darkMode = window.matchMedia("(prefers-color-scheme: Dark)")
-        .matches;
+      const darkMode = window.matchMedia(
+        "(prefers-color-scheme: Dark)"
+      ).matches;
       setDarkTheme(darkMode);
       handleTheme(darkMode);
     }
   }, []);
   return (
     <div className={styles.wrap} onClick={onClick}>
-      <div
-        className={
-          darkTheme ? `${styles.dark} ${styles.toggle}` : `${styles.toggle}`
-        }
-      >
+      <div className={toggleClassName(darkTheme, styles, "toggle")}>
         {darkTheme ? "Dark" : "Light"}
       </div>
-      <div
-        className={
-          darkTheme ? `${styles.dark} ${styles.names}` : `${styles.names}`
-        }
-      >
+      <div className={toggleClassName(darkTheme, styles, "names")}>
         <p className={styles.lightText}>Light</p>
         <p className={styles.darkText}>Dark</p>
       </div>

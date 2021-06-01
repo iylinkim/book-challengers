@@ -4,6 +4,7 @@ import BookItem from "../BookItem/BookItem";
 import BookList from "../BookList/BookList";
 import { dbService } from "fbase";
 import styles from "components/Tracker/tracker.module.css";
+import { toggleClassName } from "utils";
 
 const Tracker = ({ book, userObj, darkTheme }) => {
   const [adding, setAdding] = useState(false);
@@ -18,7 +19,6 @@ const Tracker = ({ book, userObj, darkTheme }) => {
   const onClick = () => setAdding(true);
 
   useEffect(() => {
-    console.log(history.location.state)
     if (history.location.state) {
       window.localStorage.setItem(LS_CHALLENGE, history.location.title);
       window.localStorage.setItem(
@@ -32,13 +32,12 @@ const Tracker = ({ book, userObj, darkTheme }) => {
     const ref = dbService.ref(
       `${userObj.uid}/${window.localStorage.getItem(LS_CHALLENGE)}/books`
     );
+
     ref.on("value", (snapshot) => {
       const value = snapshot.val();
-      if (value) {
-        setBookContainers(value);
-      } else {
-        setBookContainers([]);
-      }
+
+      if (value) setBookContainers(value);
+      else setBookContainers([]);
     });
   }, [userObj.uid]);
 
@@ -50,28 +49,14 @@ const Tracker = ({ book, userObj, darkTheme }) => {
   return (
     <>
       <div className={styles.tracker}>
-        <h2
-          className={
-            darkTheme ? `${styles.dark} ${styles.title}` : styles.title
-          }
-        >
+        <h2 className={toggleClassName(darkTheme, styles, "title")}>
           {window.localStorage.getItem(LS_GOAL)} Books Challenges
         </h2>
-        <h4
-          className={
-            darkTheme
-              ? `${styles.dark} ${styles.challenge_name}`
-              : styles.challenge_name
-          }
-        >
+        <h4 className={toggleClassName(darkTheme, styles, "challenge_name")}>
           "{window.localStorage.getItem(LS_CHALLENGE)}"
         </h4>
         {left > 0 && (
-          <h3
-            className={
-              darkTheme ? `${styles.dark} ${styles.left}` : `${styles.left}`
-            }
-          >
+          <h3 className={toggleClassName(darkTheme, styles, "left")}>
             <span>{left}</span> books left until goal achievement!
           </h3>
         )}
